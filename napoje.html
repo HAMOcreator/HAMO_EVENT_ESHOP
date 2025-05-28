@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nápoje | PO-JO KOKTEJLY A SNY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Luckiest Guy', cursive, sans-serif;
+      background-image: url('background_main.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+    }
+    .drink {
+      margin-bottom: 40px;
+    }
+    .drink-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.8rem;
+    }
+    .description {
+      font-size: 1.2rem;
+      margin-top: 5px;
+    }
+    .order {
+      margin-top: 10px;
+    }
+    .order select,
+    .order input {
+      padding: 6px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+    }
+    .order button {
+      padding: 8px 16px;
+      font-size: 1rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="drink">
+      <div class="drink-header">💧 Neperlivá voda <span>35 Kč</span></div>
+      <div class="description">Čistá, osvěžující voda – ideální na reset mezi drinky.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">🥤 Limo <span>40 Kč</span></div>
+      <div class="description">Sladká a bublinková, klasická limonáda s příchutí citronu a pomeranče.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">☕ Káva <span>45 Kč</span></div>
+      <div class="description">Espresso z fair-trade zrn s možností mléka nebo bez.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">🍹 Punch bowl <span>130 Kč</span></div>
+      <div class="description">Ovocný mix rumu, pomeranče, ananasu a špetky tajného kouzla.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">🍸 Gin tonic <span>140 Kč</span></div>
+      <div class="description">Prémiový gin s tonicem a kapkou limetky – klasika ve sklenici.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">🍸 Pink gin <span>140 Kč</span></div>
+      <div class="description">Gin s nádechem malin a jahod, lehce nasládlý, ideální pro chill večery.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">🥃 Rum cola <span>120 Kč</span></div>
+      <div class="description">Tmavý rum s colou, ledem a limetkou – jednoduché a účinné.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">🍹 Aperol <span>130 Kč</span></div>
+      <div class="description">Aperol, prosecco a sodovka – italský apéritiv s letní náladou.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+    <div class="drink">
+      <div class="drink-header">🍹 Hugo <span>130 Kč</span></div>
+      <div class="description">Prosecco, bezový sirup, máta a limetka – osvěžení s noblesou.</div>
+      <div class="order">
+        <select><option>1x</option><option>2x</option><option>3x</option><option>4x</option><option>5x</option></select>
+        <input type="text" placeholder="Přezdívka">
+        <button>Objednat</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
