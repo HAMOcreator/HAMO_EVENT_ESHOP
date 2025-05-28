@@ -1,0 +1,44 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('background.png') repeat;
+  background-size: 600px;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  position: relative;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.headline {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+  margin: 0;
+}
+
+.rotating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 160px;
+  height: auto;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity 0.5s ease, transform 1s ease;
+  z-index: 10;
+}
