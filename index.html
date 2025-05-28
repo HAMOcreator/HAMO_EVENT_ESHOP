@@ -2,38 +2,31 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HAMO EVENT ESHOP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PO-JO Eshop</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Luckiest Guy', cursive;
-      background: url('background_main.jpg') no-repeat center 20px fixed;
+      background-image: url('background_main.jpg');
       background-size: cover;
-      background-color: black;
-      overflow-x: hidden;
+      background-repeat: no-repeat;
+      background-position: center -240px; /* PC výška loga */
+      font-family: 'Luckiest Guy', cursive, sans-serif;
     }
 
     .top-bar {
       display: flex;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding: 6px 20px;
-      gap: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      z-index: 2;
-      position: relative;
-    }
-
-    .top-bar::-webkit-scrollbar {
-      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0); /* průhledné pozadí */
     }
 
     .menu-item {
-      display: inline-block;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: white;
       text-shadow:
         -1px -1px 0 #000,
@@ -41,7 +34,8 @@
         -1px  1px 0 #000,
          1px  1px 0 #000;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease-in-out;
+      white-space: nowrap;
     }
 
     .menu-item:hover {
@@ -56,13 +50,31 @@
       .top-bar {
         justify-content: space-between;
         flex-wrap: nowrap;
+        padding: 20px 60px;
       }
 
       body {
-        background-position: center -120px;
+        background-position: center -240px; /* ještě o 4 cm výš */
+      }
+    }
+
+    @media (max-width: 767px) {
+      body {
+        background-position: center -80px; /* mobil – jemně výš */
+      }
+
+      .menu-item {
+        font-size: 1.2rem;
+      }
+
+      .top-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px 10px;
       }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -73,7 +85,7 @@
     <div class="menu-item">🍽️ KOMBO MENU</div>
     <div class="menu-item">🎉 PLÁNOVANÉ EVENTY</div>
     <div class="menu-item">👕 MERCH</div>
-    <div class="menu-item" style="margin-left:auto">🛒 KOŠÍK</div>
+    <div class="menu-item">🛒 KOŠÍK</div>
   </div>
 
 </body>
