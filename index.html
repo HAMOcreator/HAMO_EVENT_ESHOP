@@ -1,79 +1,82 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PO-JO KOKTEJLY A SNY</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PO-JO ESHOP</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: url('background_main.jpg') no-repeat center top;
+      background-image: url('background_main.jpeg');
       background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: white;
     }
 
-    .topbar {
+    .top-bar {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.6);
       flex-wrap: wrap;
-      background: rgba(0,0,0,0.6);
-      padding: 10px;
-      font-size: 1rem;
+    }
+
+    .nav-section {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-section span {
+      font-size: 16px;
       font-weight: bold;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    .topbar div {
-      margin: 5px 10px;
-      cursor: pointer;
       white-space: nowrap;
+      text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
     }
 
-    .topbar div:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      text-align: center;
-      margin-top: 60px;
-      margin-bottom: 40px;
-    }
-
-    header img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    .cart {
+      margin-left: auto;
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
     }
 
     @media (max-width: 768px) {
-      .topbar {
+      .top-bar {
         flex-direction: column;
-        font-size: 0.95rem;
+        align-items: flex-start;
+      }
+      .cart {
+        margin-left: 0;
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigační lišta -->
-  <div class="topbar">
-    <div>🥪 JÍDLO</div>
-    <div>🍰 MOUČNÍKY</div>
-    <div>🥤 NÁPOJE</div>
-    <div>🍽️ KOMBO MENU</div>
-    <div>🎉 PLÁNOVANÉ EVENTY</div>
-    <div>👕 MERCH</div>
-    <div>📱 QR OBJEDNÁVKY</div>
-    <div style="margin-left:auto;">🛒 KOŠÍK</div>
+  <div class="top-bar">
+    <div class="nav-section">
+      <span>🥪 JÍDLO</span>
+      <span>🍰 MOUČNÍKY</span>
+      <span>🥤 NÁPOJE</span>
+      <span>🍽️ KOMBO MENU</span>
+      <span>🎉 PLÁNOVANÉ EVENTY</span>
+      <span>👕 MERCH</span>
+    </div>
+    <div class="cart">🛒 KOŠÍK</div>
   </div>
-
-  <!-- Logo + název (grafika nahoře) -->
-  <header>
-    <img src="background_main.jpg" alt="PO-JO KOKTEJLY A SNY logo">
-  </header>
 </body>
 </html>
