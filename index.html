@@ -9,9 +9,9 @@
     body {
       margin: 0;
       font-family: 'Luckiest Guy', cursive;
-      background: url('background_main.jpg') no-repeat center top fixed;
-      background-size: cover;
-      background-attachment: fixed;
+      background: url('background_main.jpg') no-repeat center top;
+      background-size: 1200px auto; /* ✅ menší rozměr */
+      background-attachment: scroll;
       background-repeat: no-repeat;
       background-position: top center;
       color: white;
@@ -33,7 +33,7 @@
     }
 
     .menu-item {
-      font-size: 1.8rem; /* zvětšeno o 20 % */
+      font-size: 1.8rem;
       white-space: nowrap;
       cursor: pointer;
       transition: transform 0.2s ease-in-out;
@@ -41,18 +41,22 @@
     }
 
     .menu-item:hover {
-      transform: scale(1.2); /* +20 % při hoveru */
+      transform: scale(1.2);
     }
 
     @media (max-width: 768px) {
-      .menu-bar {
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        overflow-x: scroll;
+      body {
+        background-size: contain; /* pro mobil optimalizované */
       }
 
       .menu-item {
         font-size: 1.6rem;
+      }
+
+      .menu-bar {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: scroll;
       }
     }
   </style>
