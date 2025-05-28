@@ -2,68 +2,85 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PO-JO Eshop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HAMO EVENT ESHOP</title>
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Luckiest Guy', cursive;
-      background: url('background_main.jpg') no-repeat top center;
-      background-size: cover;
-      background-attachment: scroll;
+      background: url('background_main.jpg') center center / contain no-repeat fixed;
+      background-color: black;
       color: white;
       text-shadow:
         -1px -1px 0 #000,
          1px -1px 0 #000,
         -1px  1px 0 #000,
          1px  1px 0 #000;
+      overflow-x: hidden;
     }
 
-    .menu-bar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: 15px 20px;
       gap: 10px;
-      padding: 20px 40px;
-      text-align: center;
+      flex-direction: row;
     }
 
-    .menu-item {
-      font-size: 2.2rem;
+    .nav-item {
+      font-size: 1.8rem;
       white-space: nowrap;
+      transition: transform 0.3s ease;
       cursor: pointer;
-      transition: transform 0.2s ease-in-out;
     }
 
-    .menu-item:hover {
+    .nav-item:hover {
       transform: scale(1.2);
     }
 
-    @media (max-width: 768px) {
-      .menu-bar {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 12px;
-        padding: 12px;
-      }
+    .nav-left {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+      flex-grow: 1;
+      overflow-x: auto;
+    }
 
-      .menu-item {
-        font-size: 1.6rem;
-        flex-shrink: 0;
+    .nav-right {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-left {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-item {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="menu-bar">
-    <div class="menu-item">🥪 JÍDLO</div>
-    <div class="menu-item">🍰 MOUČNÍKY</div>
-    <div class="menu-item">🥤 NÁPOJE</div>
-    <div class="menu-item">🍽️ KOMBO MENU</div>
-    <div class="menu-item">🎉 EVENTY</div>
-    <div class="menu-item">👕 MERCH</div>
-    <div class="menu-item">🛒 KOŠÍK</div>
+  <div class="nav-bar">
+    <div class="nav-left">
+      <div class="nav-item">🥪 JÍDLO</div>
+      <div class="nav-item">🍰 MOUČNÍKY</div>
+      <div class="nav-item">🥤 NÁPOJE</div>
+      <div class="nav-item">🍽️ KOMBO MENU</div>
+      <div class="nav-item">🎉 PLÁNOVANÉ EVENTY</div>
+      <div class="nav-item">👕 MERCH</div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-item">🛒 KOŠÍK</div>
+    </div>
   </div>
 </body>
 </html>
