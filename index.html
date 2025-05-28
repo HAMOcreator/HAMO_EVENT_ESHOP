@@ -19,43 +19,68 @@
          1px  1px 0 #000;
     }
 
-    .menu {
+    .menu-wrapper {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      padding: 20px 10px 10px;
-      font-size: 1.5rem;
+      flex-wrap: wrap;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .menu div {
-      margin: 8px 12px;
-      cursor: pointer;
+    .menu-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      flex: 1;
+      font-size: 2.2rem;
+    }
+
+    .menu-right {
+      font-size: 2.2rem;
       white-space: nowrap;
+    }
+
+    .menu-left div, .menu-right {
+      cursor: pointer;
       transition: transform 0.2s ease-in-out;
     }
 
-    .menu div:hover {
+    .menu-left div:hover, .menu-right:hover {
       transform: scale(1.1);
     }
 
     @media (max-width: 768px) {
-      .menu {
+      .menu-wrapper {
         flex-direction: column;
-        font-size: 1.2rem;
+        align-items: center;
+      }
+
+      .menu-left {
+        justify-content: center;
+        font-size: 1.5rem;
+        gap: 14px;
+      }
+
+      .menu-right {
+        margin-top: 10px;
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="menu">
-    <div>🥪 JÍDLO</div>
-    <div>🍰 MOUČNÍKY</div>
-    <div>🥤 NÁPOJE</div>
-    <div>🍽️ KOMBO MENU</div>
-    <div>🎉 PLÁNOVANÉ EVENTY</div>
-    <div>👕 MERCH</div>
-    <div style="margin-left:auto;">🛒 KOŠÍK</div>
+  <div class="menu-wrapper">
+    <div class="menu-left">
+      <div>🥪 JÍDLO</div>
+      <div>🍰 MOUČNÍKY</div>
+      <div>🥤 NÁPOJE</div>
+      <div>🍽️ KOMBO MENU</div>
+      <div>🎉 EVENTY</div>
+      <div>👕 MERCH</div>
+    </div>
+    <div class="menu-right">🛒 KOŠÍK</div>
   </div>
 </body>
 </html>
