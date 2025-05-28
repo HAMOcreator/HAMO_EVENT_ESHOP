@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PO-JO KOKTEJLY A SNY Eshop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PO-JO KOKTEJLY A SNY</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: url('background_main.jpg') no-repeat center top;
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 180px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .content {
+        padding-top: 140px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="PO-JO Logo" class="logo" />
-    <h1 class="headline">PO-JO KOKTEJLY A SNY</h1>
-  </header>
-  <main>
-    <!-- Obsah e-shopu bude zde -->
-  </main>
-  <img id="rotatingImage" class="rotating" src="truck1.png" alt="Truck" />
-  <script src="script.js"></script>
+  <div class="content">
+    <h1>PO-JO KOKTEJLY A SNY</h1>
+    <!-- Tady později přidáme tlačítka, menu, produkty... -->
+  </div>
 </body>
 </html>
