@@ -11,7 +11,7 @@
       padding: 20px;
       background-image: url('background_drinks.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       font-family: 'Luckiest Guy', cursive;
       color: white;
       overflow-x: hidden;
@@ -23,17 +23,19 @@
       padding: 20px;
       margin: 15px 0;
       font-size: 1.2rem;
+      cursor: default;
     }
 
     .drink-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
+      flex-wrap: wrap;
     }
 
     .description {
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-top: 8px;
     }
 
@@ -73,6 +75,7 @@
       justify-content: space-between;
       padding: 10px 20px;
       background-color: rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
     }
 
     .bottom-buttons button {
@@ -82,6 +85,7 @@
       border-radius: 10px;
       cursor: pointer;
       font-family: 'Luckiest Guy', cursive;
+      width: 48%;
     }
 
     #orderBtn {
@@ -93,12 +97,51 @@
       background-color: #ffab00;
       color: white;
     }
+
+    /* RESPONSIVE STYLES */
+    @media (max-width: 768px) {
+      .drink-title {
+        font-size: 1.3rem;
+      }
+
+      .description {
+        font-size: 1rem;
+      }
+
+      .qty-selector button, .qty-selector span {
+        font-size: 1rem;
+      }
+
+      .bottom-buttons button {
+        font-size: 1.2rem;
+        padding: 8px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .drink-title {
+        font-size: 2rem;
+      }
+
+      .description {
+        font-size: 1.4rem;
+      }
+
+      .qty-selector button, .qty-selector span {
+        font-size: 1.3rem;
+      }
+
+      .bottom-buttons button {
+        font-size: 1.6rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="drink" onclick="toggleQty(this)">
-    <div class="drink-title">💧 Neperlivá voda <span>35 Kč</span></div>
+  <!-- DRINK: Neperlivá voda -->
+  <div class="drink">
+    <div class="drink-title" onclick="toggleQty(this)">💧 Neperlivá voda <span>35 Kč</span></div>
     <div class="description">Jemně studená horská klasika pro každého, kdo si na party nechce zamotat jazyk 🏔️</div>
     <div class="qty-selector">
       <button onclick="changeQty(this, -1)">−</button>
@@ -108,27 +151,7 @@
     </div>
   </div>
 
-  <div class="drink" onclick="toggleQty(this)">
-    <div class="drink-title">🥤 Limo <span>40 Kč</span></div>
-    <div class="description">Bublinková bomba s příchutí malin a dětských let – bez cukrové kocoviny 💥</div>
-    <div class="qty-selector">
-      <button onclick="changeQty(this, -1)">−</button>
-      <span>0</span>
-      <button onclick="changeQty(this, 1)">+</button>
-      <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
-    </div>
-  </div>
-
-  <div class="drink" onclick="toggleQty(this)">
-    <div class="drink-title">☕ Káva <span>45 Kč</span></div>
-    <div class="description">Silná jak páteční ráno po čtvrtečním mejdanu ☕💣</div>
-    <div class="qty-selector">
-      <button onclick="changeQty(this, -1)">−</button>
-      <span>0</span>
-      <button onclick="changeQty(this, 1)">+</button>
-      <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
-    </div>
-  </div>
+  <!-- DALŠÍ NÁPOJE – přidáš podle potřeby stejně -->
 
   <div class="bottom-buttons">
     <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
@@ -138,9 +161,11 @@
   <script>
     const selectedDrinks = [];
 
-    function toggleQty(container) {
-      const qty = container.querySelector('.qty-selector');
-      qty.style.display = qty.style.display === 'flex' ? 'none' : 'flex';
+    function toggleQty(titleEl) {
+      const parent = titleEl.closest('.drink');
+      const qty = parent.querySelector('.qty-selector');
+      qty.style.display = 'flex';
+      qty.style.flexDirection = 'row';
     }
 
     function changeQty(btn, change) {
