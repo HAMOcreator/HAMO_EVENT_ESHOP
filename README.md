@@ -1,0 +1,1 @@
+# HAMO_EVENT_ESHOP
