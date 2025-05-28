@@ -1,46 +1,79 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HAMO EVENT ESHOP</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PO-JO KOKTEJLY A SNY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
+      font-family: 'Arial', sans-serif;
       background: url('background_main.jpg') no-repeat center top;
       background-size: cover;
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
       color: white;
-      text-shadow:
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
     }
 
-    .container {
+    .topbar {
       display: flex;
-      flex-direction: column;
+      justify-content: space-around;
       align-items: center;
-      padding-top: 300px; /* aby logo zůstalo v horní části pozadí */
+      flex-wrap: wrap;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
     }
 
-    h1 {
-      display: none; /* odstraněno protože logo+nápis je v obrázku */
+    .topbar div {
+      margin: 5px 10px;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding-top: 180px;
+    .topbar div:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+
+    header img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- další obsah webu jako menu, nápoje, platby přidáme později -->
+  <!-- Navigační lišta -->
+  <div class="topbar">
+    <div>🥪 JÍDLO</div>
+    <div>🍰 MOUČNÍKY</div>
+    <div>🥤 NÁPOJE</div>
+    <div>🍽️ KOMBO MENU</div>
+    <div>🎉 PLÁNOVANÉ EVENTY</div>
+    <div>👕 MERCH</div>
+    <div>📱 QR OBJEDNÁVKY</div>
+    <div style="margin-left:auto;">🛒 KOŠÍK</div>
   </div>
+
+  <!-- Logo + název (grafika nahoře) -->
+  <header>
+    <img src="background_main.jpg" alt="PO-JO KOKTEJLY A SNY logo">
+  </header>
 </body>
 </html>
