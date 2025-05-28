@@ -14,6 +14,7 @@
       background-position: center;
       font-family: 'Luckiest Guy', cursive;
       color: white;
+      overflow-x: hidden;
     }
 
     .drink {
@@ -41,6 +42,7 @@
       margin-top: 10px;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .qty-selector button {
@@ -51,19 +53,26 @@
       padding: 5px 10px;
       border-radius: 6px;
       cursor: pointer;
+      font-family: 'Luckiest Guy', cursive;
     }
 
     .qty-selector span {
       font-size: 1.2rem;
     }
 
+    .qty-selector .confirm-btn {
+      background-color: #ff4081;
+      color: white;
+    }
+
     .bottom-buttons {
       position: fixed;
-      bottom: 20px;
+      bottom: 0;
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
     }
 
     .bottom-buttons button {
@@ -95,6 +104,7 @@
       <button onclick="changeQty(this, -1)">−</button>
       <span>0</span>
       <button onclick="changeQty(this, 1)">+</button>
+      <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
     </div>
   </div>
 
@@ -105,6 +115,7 @@
       <button onclick="changeQty(this, -1)">−</button>
       <span>0</span>
       <button onclick="changeQty(this, 1)">+</button>
+      <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
     </div>
   </div>
 
@@ -115,10 +126,9 @@
       <button onclick="changeQty(this, -1)">−</button>
       <span>0</span>
       <button onclick="changeQty(this, 1)">+</button>
+      <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
     </div>
   </div>
-
-  <!-- Další drinky doplníme stejným způsobem -->
 
   <div class="bottom-buttons">
     <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
@@ -126,6 +136,8 @@
   </div>
 
   <script>
+    const selectedDrinks = [];
+
     function toggleQty(container) {
       const qty = container.querySelector('.qty-selector');
       qty.style.display = qty.style.display === 'flex' ? 'none' : 'flex';
@@ -138,8 +150,35 @@
       span.innerText = current;
     }
 
+    function confirmQty(e) {
+      e.stopPropagation();
+      const parent = e.target.closest('.drink');
+      const name = parent.querySelector('.drink-title').innerText;
+      const qty = parseInt(parent.querySelector('.qty-selector span').innerText);
+      if (qty > 0) {
+        selectedDrinks.push({ name, qty });
+        alert(`${name} × ${qty} přidáno do objednávky.`);
+        parent.querySelector('.qty-selector').style.display = 'none';
+      }
+    }
+
     function placeOrder() {
-      alert('Zobrazí se souhrn objednávky a zadání přezdívky – funkce bude doplněna.');
+      if (selectedDrinks.length === 0) {
+        alert('Nejdřív si něco objednej!');
+        return;
+      }
+      let summary = 'Tvoje objednávka:\n';
+      let total = 0;
+      selectedDrinks.forEach(d => {
+        summary += `${d.name} × ${d.qty}\n`;
+        const price = parseInt(d.name.match(/(\d+)/g).pop());
+        total += price * d.qty;
+      });
+      summary += `\nCelkem: ${total} Kč`;
+      const nick = prompt(summary + '\n\nZadej svoji přezdívku:');
+      if (nick) {
+        alert(`Díky ${nick}! Objednávka zpracována. Přijď si pro drinky. 🍹`);
+      }
     }
   </script>
 
