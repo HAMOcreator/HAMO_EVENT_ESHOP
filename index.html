@@ -2,91 +2,66 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PO-JO Eshop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PO-JO KOKTEJLY A SNY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       background-image: url('background_main.jpg');
       background-size: cover;
+      background-position: top;
       background-repeat: no-repeat;
-      background-position: center -240px; /* PC výška loga */
       font-family: 'Luckiest Guy', cursive, sans-serif;
     }
-
-    .top-bar {
+    .nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      padding: 15px 20px;
-      background: rgba(255, 255, 255, 0); /* průhledné pozadí */
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.9);
     }
-
-    .menu-item {
+    .nav a {
+      margin: 5px 10px;
       font-size: 1.3rem;
+      text-decoration: none;
       color: white;
       text-shadow:
         -1px -1px 0 #000,
          1px -1px 0 #000,
         -1px  1px 0 #000,
          1px  1px 0 #000;
-      cursor: pointer;
       transition: transform 0.2s ease-in-out;
-      white-space: nowrap;
     }
-
-    .menu-item:hover {
+    .nav a:hover {
       transform: scale(1.2);
     }
-
-    @media (min-width: 768px) {
-      .menu-item {
-        font-size: 1.6rem;
-      }
-
-      .top-bar {
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        padding: 20px 60px;
-      }
-
-      body {
-        background-position: center -240px; /* ještě o 4 cm výš */
-      }
+    .nav .right {
+      margin-left: auto;
     }
-
-    @media (max-width: 767px) {
-      body {
-        background-position: center -80px; /* mobil – jemně výš */
-      }
-
-      .menu-item {
-        font-size: 1.2rem;
-      }
-
-      .top-bar {
+    @media (max-width: 768px) {
+      .nav {
         flex-wrap: wrap;
         justify-content: center;
-        padding: 12px 10px;
+      }
+      .nav a {
+        font-size: 1rem;
+        margin: 8px;
       }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <div class="top-bar">
-    <div class="menu-item">🥪 JÍDLO</div>
-    <div class="menu-item">🍰 MOUČNÍKY</div>
-    <div class="menu-item">🥤 NÁPOJE</div>
-    <div class="menu-item">🍽️ KOMBO MENU</div>
-    <div class="menu-item">🎉 PLÁNOVANÉ EVENTY</div>
-    <div class="menu-item">👕 MERCH</div>
-    <div class="menu-item">🛒 KOŠÍK</div>
+  <div class="nav">
+    <a href="#">🥪 JÍDLO</a>
+    <a href="#">🍰 MOUČNÍKY</a>
+    <a href="napoje.html">🥤 NÁPOJE</a>
+    <a href="#">🍽️ KOMBO MENU</a>
+    <a href="#">🎉 PLÁNOVANÉ EVENTY</a>
+    <a href="#">👕 MERCH</a>
+    <a href="#" class="right">🛒 KOŠÍK</a>
   </div>
-
 </body>
 </html>
