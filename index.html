@@ -2,81 +2,60 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PO-JO ESHOP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PO-JO Eshop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-image: url('background_main.jpeg');
+      font-family: 'Luckiest Guy', cursive;
+      background: url('background_main.jpeg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       color: white;
+      text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
     }
 
-    .top-bar {
+    .menu {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background: rgba(0, 0, 0, 0.6);
       flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px 10px 10px;
+      font-size: 1.5rem;
     }
 
-    .nav-section {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .nav-section span {
-      font-size: 16px;
-      font-weight: bold;
+    .menu div {
+      margin: 8px 12px;
+      cursor: pointer;
       white-space: nowrap;
-      text-shadow:
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
+      transition: transform 0.2s ease-in-out;
     }
 
-    .cart {
-      margin-left: auto;
-      font-size: 16px;
-      font-weight: bold;
-      text-shadow:
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
+    .menu div:hover {
+      transform: scale(1.1);
     }
 
     @media (max-width: 768px) {
-      .top-bar {
+      .menu {
         flex-direction: column;
-        align-items: flex-start;
-      }
-      .cart {
-        margin-left: 0;
-        margin-top: 10px;
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="nav-section">
-      <span>🥪 JÍDLO</span>
-      <span>🍰 MOUČNÍKY</span>
-      <span>🥤 NÁPOJE</span>
-      <span>🍽️ KOMBO MENU</span>
-      <span>🎉 PLÁNOVANÉ EVENTY</span>
-      <span>👕 MERCH</span>
-    </div>
-    <div class="cart">🛒 KOŠÍK</div>
+  <div class="menu">
+    <div>🥪 JÍDLO</div>
+    <div>🍰 MOUČNÍKY</div>
+    <div>🥤 NÁPOJE</div>
+    <div>🍽️ KOMBO MENU</div>
+    <div>🎉 PLÁNOVANÉ EVENTY</div>
+    <div>👕 MERCH</div>
+    <div style="margin-left:auto;">🛒 KOŠÍK</div>
   </div>
 </body>
 </html>
