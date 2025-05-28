@@ -98,114 +98,109 @@
       color: white;
     }
 
-    /* RESPONSIVE STYLES */
     @media (max-width: 768px) {
-      .drink-title {
-        font-size: 1.3rem;
-      }
-
-      .description {
-        font-size: 1rem;
-      }
-
-      .qty-selector button, .qty-selector span {
-        font-size: 1rem;
-      }
-
-      .bottom-buttons button {
-        font-size: 1.2rem;
-        padding: 8px;
-      }
+      .drink-title { font-size: 1.3rem; }
+      .description { font-size: 1rem; }
+      .qty-selector button, .qty-selector span { font-size: 1rem; }
+      .bottom-buttons button { font-size: 1.2rem; padding: 8px; }
     }
 
     @media (min-width: 1024px) {
-      .drink-title {
-        font-size: 2rem;
-      }
-
-      .description {
-        font-size: 1.4rem;
-      }
-
-      .qty-selector button, .qty-selector span {
-        font-size: 1.3rem;
-      }
-
-      .bottom-buttons button {
-        font-size: 1.6rem;
-      }
+      .drink-title { font-size: 2rem; }
+      .description { font-size: 1.4rem; }
+      .qty-selector button, .qty-selector span { font-size: 1.3rem; }
+      .bottom-buttons button { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- DRINK: Neperlivá voda -->
-  <div class="drink">
-    <div class="drink-title" onclick="toggleQty(this)">💧 Neperlivá voda <span>35 Kč</span></div>
-    <div class="description">Jemně studená horská klasika pro každého, kdo si na party nechce zamotat jazyk 🏔️</div>
-    <div class="qty-selector">
-      <button onclick="changeQty(this, -1)">−</button>
-      <span>0</span>
-      <button onclick="changeQty(this, 1)">+</button>
-      <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
-    </div>
-  </div>
+<script>
+const drinks = [
+  { emoji: "💧", name: "Neperlivá voda", price: 35, desc: "Jemně studená horská klasika pro každého, kdo si na party nechce zamotat jazyk 🏔️" },
+  { emoji: "🥤", name: "Limo", price: 40, desc: "Barevná bublinková radost, co chutná jako dětství na pouti 🎡" },
+  { emoji: "☕", name: "Káva", price: 45, desc: "Záchranný budíček, co tě zvedne z parketu rychleji než DJ drop 🎶" },
+  { emoji: "🍹", name: "Punch bowl", price: 130, desc: "Ovocný výbuch v každé sklence. Není to pěst, je to pohlazení 👊🍓" },
+  { emoji: "🍸", name: "Gin tonic", price: 140, desc: "Elegantní kombinace, co tančí po jazyku jako salsa mistr 💃" },
+  { emoji: "🍸", name: "Pink gin", price: 140, desc: "Sladká růžová symfonie s nádechem rebelie 🌸🔥" },
+  { emoji: "🥃", name: "Rum cola", price: 120, desc: "Klasika, co nikdy nezklame. Temná a přesto osvěžující ☠️🥤" },
+  { emoji: "🍹", name: "Aperol", price: 130, desc: "Oranžová ikona každé letní party. Hořkosladké štěstí ve skle 🌞" },
+  { emoji: "🍹", name: "Hugo", price: 130, desc: "Máta, bezinka, bublinky... co víc si přát na osvěžení duše 💚" }
+];
 
-  <!-- DALŠÍ NÁPOJE – přidáš podle potřeby stejně -->
+function renderDrinks() {
+  const body = document.body;
+  drinks.forEach(drink => {
+    const div = document.createElement('div');
+    div.className = 'drink';
+    div.innerHTML = `
+      <div class="drink-title" onclick="toggleQty(this)">${drink.emoji} ${drink.name} <span>${drink.price} Kč</span></div>
+      <div class="description">${drink.desc}</div>
+      <div class="qty-selector">
+        <button onclick="changeQty(this, -1)">−</button>
+        <span>0</span>
+        <button onclick="changeQty(this, 1)">+</button>
+        <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
+      </div>
+    `;
+    body.insertBefore(div, document.querySelector('.bottom-buttons'));
+  });
+}
 
-  <div class="bottom-buttons">
-    <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
-    <button id="orderBtn" onclick="placeOrder()">🛒 Objednat</button>
-  </div>
+window.onload = renderDrinks;
 
-  <script>
-    const selectedDrinks = [];
+const selectedDrinks = [];
 
-    function toggleQty(titleEl) {
-      const parent = titleEl.closest('.drink');
-      const qty = parent.querySelector('.qty-selector');
-      qty.style.display = 'flex';
-      qty.style.flexDirection = 'row';
-    }
+function toggleQty(titleEl) {
+  const parent = titleEl.closest('.drink');
+  const qty = parent.querySelector('.qty-selector');
+  qty.style.display = 'flex';
+  qty.style.flexDirection = 'row';
+}
 
-    function changeQty(btn, change) {
-      const span = btn.parentElement.querySelector('span');
-      let current = parseInt(span.innerText);
-      current = Math.max(0, current + change);
-      span.innerText = current;
-    }
+function changeQty(btn, change) {
+  const span = btn.parentElement.querySelector('span');
+  let current = parseInt(span.innerText);
+  current = Math.max(0, current + change);
+  span.innerText = current;
+}
 
-    function confirmQty(e) {
-      e.stopPropagation();
-      const parent = e.target.closest('.drink');
-      const name = parent.querySelector('.drink-title').innerText;
-      const qty = parseInt(parent.querySelector('.qty-selector span').innerText);
-      if (qty > 0) {
-        selectedDrinks.push({ name, qty });
-        alert(`${name} × ${qty} přidáno do objednávky.`);
-        parent.querySelector('.qty-selector').style.display = 'none';
-      }
-    }
+function confirmQty(e) {
+  e.stopPropagation();
+  const parent = e.target.closest('.drink');
+  const name = parent.querySelector('.drink-title').innerText;
+  const qty = parseInt(parent.querySelector('.qty-selector span').innerText);
+  if (qty > 0) {
+    selectedDrinks.push({ name, qty });
+    alert(`${name} × ${qty} přidáno do objednávky.`);
+    parent.querySelector('.qty-selector').style.display = 'none';
+  }
+}
 
-    function placeOrder() {
-      if (selectedDrinks.length === 0) {
-        alert('Nejdřív si něco objednej!');
-        return;
-      }
-      let summary = 'Tvoje objednávka:\n';
-      let total = 0;
-      selectedDrinks.forEach(d => {
-        summary += `${d.name} × ${d.qty}\n`;
-        const price = parseInt(d.name.match(/(\d+)/g).pop());
-        total += price * d.qty;
-      });
-      summary += `\nCelkem: ${total} Kč`;
-      const nick = prompt(summary + '\n\nZadej svoji přezdívku:');
-      if (nick) {
-        alert(`Díky ${nick}! Objednávka zpracována. Přijď si pro drinky. 🍹`);
-      }
-    }
-  </script>
+function placeOrder() {
+  if (selectedDrinks.length === 0) {
+    alert('Nejdřív si něco objednej!');
+    return;
+  }
+  let summary = 'Tvoje objednávka:\n';
+  let total = 0;
+  selectedDrinks.forEach(d => {
+    summary += `${d.name} × ${d.qty}\n`;
+    const price = parseInt(d.name.match(/(\d+)/g).pop());
+    total += price * d.qty;
+  });
+  summary += `\nCelkem: ${total} Kč`;
+  const nick = prompt(summary + '\n\nZadej svoji přezdívku:');
+  if (nick) {
+    alert(`Díky ${nick}! Objednávka zpracována. Přijď si pro drinky. 🍹`);
+  }
+}
+</script>
+
+<div class="bottom-buttons">
+  <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
+  <button id="orderBtn" onclick="placeOrder()">🛒 Objednat</button>
+</div>
 
 </body>
 </html>
