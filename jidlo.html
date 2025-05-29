@@ -115,19 +115,24 @@
 </head>
 <body>
 
-<script>
-const drinks = [
-  { emoji: "🥪", name: "Club sandwich", price: 170, desc: "Trojitý útok chutí, salátu a slaniny – poskládaný jako LEGO pro gurmány!" },
-  { emoji: "🍔", name: "PO-JO Beef Burger", price: 225, desc: "Šťavnatý král večera s podpisem PO-JO – víc masa než v pondělní hádce!" },
-  { emoji: "🧀", name: "Cheeseburger", price: 180, desc: "Roztékající se sýr a hovězí? Láska na první kousnutí 🧡" },
-  { emoji: "🌭", name: "Párek v rohlíku", price: 35, desc: "Klasika všech festivalů – nenáročný kámoš s velkým srdcem." },
-  { emoji: "🔥", name: "Špekáček", price: 75, desc: "Lehce připálený, ale za to s charakterem – špeko, co voní po ohništi!" },
-  { emoji: "🍟", name: "Hranolky", price: 45, desc: "Křupavé, zlaté a mizí rychleji než stories po večírku 🍟" },
-  { emoji: "🌭", name: "Hot Dog", price: 75, desc: "Dlouhý, šťavnatý a vždy připravený zachránit hladovou duši." },
-  { emoji: "🌯", name: "Kuřecí wrap", price: 155, desc: "Kuřecí, zelenina, omáčka a tortilla – zabalené překvapení s happy endem!" }
-];
+<div class="bottom-buttons">
+  <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
+  <button id="orderBtn" onclick="placeOrder()">🛒 Objednat</button>
+</div>
 
-function renderDrinks() {
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const drinks = [
+    { emoji: "🦪", name: "Club sandwich", price: 170, desc: "Trojitý útok chutí, salátu a slaniny – poskládaný jako LEGO pro gurmány!" },
+    { emoji: "🍔", name: "PO-JO Beef Burger", price: 225, desc: "Šťavnatý král večera s podpisem PO-JO – víc masa než v pondělní hádce!" },
+    { emoji: "🧀", name: "Cheeseburger", price: 180, desc: "Roztékající se sýr a hovězí? Láska na první kousnutí 💜" },
+    { emoji: "🌭", name: "Párek v rohlíku", price: 35, desc: "Klasika všech festivalů – nenáročný kámoš s velkým srdcem." },
+    { emoji: "🔥", name: "Špekáček", price: 75, desc: "Lehce připálený, ale za to s charakterem – špeko, co voní po ohništi!" },
+    { emoji: "🍟", name: "Hranolky", price: 45, desc: "Křupavé, zlaté a mizí rychleji než stories po večírku 🍟" },
+    { emoji: "🌭", name: "Hot Dog", price: 75, desc: "Dlouhý, šťavnatý a vždy připravený zachránit hladovou duši." },
+    { emoji: "🌯", name: "Kuřecí wrap", price: 155, desc: "Kuřecí, zelenina, omáčka a tortilla – zabalené překvapení s happy endem!" }
+  ];
+
   const body = document.body;
   drinks.forEach(drink => {
     const div = document.createElement('div');
@@ -144,9 +149,7 @@ function renderDrinks() {
     `;
     body.insertBefore(div, document.querySelector('.bottom-buttons'));
   });
-}
-
-window.onload = renderDrinks;
+});
 
 const selectedDrinks = [];
 
@@ -195,11 +198,6 @@ function placeOrder() {
   }
 }
 </script>
-
-<div class="bottom-buttons">
-  <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
-  <button id="orderBtn" onclick="placeOrder()">🛒 Objednat</button>
-</div>
 
 </body>
 </html>
