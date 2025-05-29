@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moučníky</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-image: url('background_desserts.jpg');
+      background-size: cover;
+      background-position: center top;
+      font-family: 'Luckiest Guy', cursive;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .item {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px 0;
+      font-size: 1.2rem;
+      cursor: default;
+    }
+
+    .item-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.7rem;
+      flex-wrap: wrap;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      margin-top: 8px;
+    }
+
+    .qty-selector {
+      display: none;
+      margin-top: 10px;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .qty-selector button {
+      font-size: 1.2rem;
+      background: #fff;
+      color: black;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Luckiest Guy', cursive;
+    }
+
+    .qty-selector span {
+      font-size: 1.2rem;
+    }
+
+    .qty-selector .confirm-btn {
+      background-color: #ff4081;
+      color: white;
+    }
+
+    .bottom-buttons {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
+    }
+
+    .bottom-buttons button {
+      font-size: 1.4rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Luckiest Guy', cursive;
+      width: 48%;
+    }
+
+    #orderBtn {
+      background-color: #00c853;
+      color: white;
+    }
+
+    #homeBtn {
+      background-color: #ffab00;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+const desserts = [
+  { emoji: "🍏", name: "Štrúdlová smršť", price: 40, desc: "Domácí jablečný závin s náloží skořice. Rozpadá se štěstím! 🌀🍏🥧✨" },
+  { emoji: "🍰", name: "Buchtobomba", price: 45, desc: "Nadýchaná buchta, co trefí přímo do srdce. 💣💘🍒🍰" },
+  { emoji: "🍩", name: "PO-JO donut", price: 35, desc: "Mini donut s maxi chutí. Vyber si polevu! 🎯🍩🌈😋" },
+  { emoji: "🍦", name: "Zmrzlina", price: 60, desc: "Točíme, kopečkujeme, milujeme. 🍦💞🍧❄️" },
+  { emoji: "🥤", name: "Milk shake", price: 65, desc: "Mléčný šejk, co tě vystřelí do sladkého nebe. 🚀🥤🌌💫" },
+  { emoji: "🍓", name: "Sladký PO-JO sen", price: 75, desc: "Dezert do kelímku – vrstvy štěstí, mascarpone a ovoce. 🍓🥄🍮🛌✨" }
+];
+
+function renderItems() {
+  const body = document.body;
+  desserts.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <div class="item-title" onclick="toggleQty(this)">${item.emoji} ${item.name} <span>${item.price} Kč</span></div>
+      <div class="description">${item.desc}</div>
+      <div class="qty-selector">
+        <button onclick="changeQty(this, -1)">−</button>
+        <span>0</span>
+        <button onclick="changeQty(this, 1)">+</button>
+        <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
+      </div>
+    `;
+    body.insertBefore(div, document.querySelector('.bottom-buttons'));
+  });
+}
+
+window.onload = renderItems;
+
+const selectedItems = [];
+
+function toggleQty(titleEl) {
+  const parent = titleEl.closest('.item');
+  const qty = parent.querySelector('.qty-selector');
+  qty.style.display = 'flex';
+  qty.style.flexDirection = 'row';
+}
+
+function changeQty(btn, change) {
+  const span = btn.parentElement.querySelector('span');
+  let current = parseInt(span.innerText);
+  current = Math.max(0, current + change);
+  span.innerText = current;
+}
+
+function confirmQty(e) {
+  e.stopPropagation();
+  const parent = e.target.closest('.item');
+  const name = parent.querySelector('.item-title').innerText;
+  const qty = parseInt(parent.querySelector('.qty-selector span').innerText);
+  if (qty > 0) {
+    selectedItems.push({ name, qty });
+    alert(`${name} × ${qty} přidáno do objednávky.`);
+    parent.querySelector('.qty-selector').style.display = 'none';
+  }
+}
+
+function placeOrder() {
+  if (selectedItems.length === 0) {
+    alert('Nejdřív si něco objednej!');
+    return;
+  }
+  let summary = 'Tvoje objednávka:
+';
+  let total = 0;
+  selectedItems.forEach(d => {
+    summary += `${d.name} × ${d.qty}
+`;
+    const price = parseInt(d.name.match(/(\d+)/g)?.pop() || 0);
+    total += price * d.qty;
+  });
+  summary += `
+Celkem: ${total} Kč`;
+  const nick = prompt(summary + '\n\nZadej svoji přezdívku:');
+  if (nick) {
+    alert(`Díky ${nick}! Objednávka zpracována. Přijď si pro moučník. 🍰`);
+  }
+}
+</script>
+
+<div class="bottom-buttons">
+  <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
+  <button id="orderBtn" onclick="placeOrder()">🛒 Objednat</button>
+</div>
+
+</body>
+</html>
