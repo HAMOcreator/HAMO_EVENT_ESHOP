@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>PO-JO MERCH</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: url('background_merch.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .product {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product h2 {
+            margin: 10px 0 5px;
+            font-size: 1.5em;
+        }
+
+        .product p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
+        .qty-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            gap: 20px;
+        }
+
+        .qty-controls button {
+            font-size: 1.5em;
+            padding: 5px 15px;
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .qty-controls span {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛍️ MERCH PO-JO</h1>
+    <div class="product-grid" id="products"></div>
+
+    <script>
+        const merchItems = [
+            { emoji: "🧔‍♂️", title: "Pánské tričko", img: "pansketriko.jpg", desc: "Styl, pohodlí a špetka testosteronu v jednom 🔥👕💪" },
+            { emoji: "👩‍🎤", title: "Dámské tričko", img: "damsketriko.jpg", desc: "Když chceš vypadat cool i při pití mléčného koktejlu 🍓💃✨" },
+            { emoji: "☕", title: "Termo hrnek", img: "hrnek.jpg", desc: "Drží kafe teplý a ruce stylový – tvůj nový ranní spojenec 🛻☕🧤" },
+            { emoji: "👻", title: "Mikina s kapucí", img: "bilamikina.jpg", desc: "Zahřeje víc než pohled barmana po třetím drinku 🍸❄️🧥" },
+            { emoji: "🔑", title: "Klíčenka", img: "", desc: "Zboží připravujeme. 🎪🤯🗝️" },
+            { emoji: "🧢", title: "Stylová kšiltovka", img: "", desc: "Zboží připravujeme. 🌞🧢😎" },
+            { emoji: "🎩", title: "Kulich", img: "", desc: "Zboží připravujeme. 🧊🎶🧶" },
+            { emoji: "🛍️", title: "Plátěná taška", img: "", desc: "Zboží připravujeme. 🥤💚👜" },
+            { emoji: "📿", title: "Náramek s logem", img: "", desc: "Zboží připravujeme. 🧑‍🤝‍🧑🌟💫" },
+            { emoji: "🧼", title: "Osuška", img: "", desc: "Zboží připravujeme. 🌊🍺🧖‍♂️" },
+        ];
+
+        const container = document.getElementById('products');
+
+        merchItems.forEach((item, i) => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+
+            const image = item.img
+                ? `<img src="${item.img}" alt="${item.title}">`
+                : `<p><em>${item.desc}</em></p>`;
+
+            const qtyControls = item.img
+                ? `<div class="qty-controls">
+                        <button onclick="decrease(${i})">−</button>
+                        <span id="qty-${i}">0</span>
+                        <button onclick="increase(${i})">+</button>
+                   </div>`
+                : '';
+
+            productDiv.innerHTML = `
+                <h2>${item.emoji} ${item.title}</h2>
+                ${item.img ? image : ''}
+                <p>${item.desc}</p>
+                ${qtyControls}
+            `;
+            container.appendChild(productDiv);
+        });
+
+        function increase(i) {
+            const el = document.getElementById(`qty-${i}`);
+            el.textContent = parseInt(el.textContent) + 1;
+        }
+
+        function decrease(i) {
+            const el = document.getElementById(`qty-${i}`);
+            const value = parseInt(el.textContent);
+            if (value > 0) el.textContent = value - 1;
+        }
+    </script>
+</body>
+</html>
