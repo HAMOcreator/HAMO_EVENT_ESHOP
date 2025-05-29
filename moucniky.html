@@ -17,7 +17,7 @@
       overflow-x: hidden;
     }
 
-    .item {
+    .dessert {
       background: rgba(0, 0, 0, 0.6);
       border-radius: 12px;
       padding: 20px;
@@ -26,7 +26,7 @@
       cursor: default;
     }
 
-    .item-title {
+    .dessert-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -56,10 +56,6 @@
       border-radius: 6px;
       cursor: pointer;
       font-family: 'Luckiest Guy', cursive;
-    }
-
-    .qty-selector span {
-      font-size: 1.2rem;
     }
 
     .qty-selector .confirm-btn {
@@ -111,13 +107,15 @@ const desserts = [
   { emoji: "🍓", name: "Sladký PO-JO sen", price: 75, desc: "Dezert do kelímku – vrstvy štěstí, mascarpone a ovoce. 🍓🥄🍮🛌✨" }
 ];
 
-function renderItems() {
+const selected = [];
+
+function renderDesserts() {
   const body = document.body;
   desserts.forEach(item => {
     const div = document.createElement('div');
-    div.className = 'item';
+    div.className = 'dessert';
     div.innerHTML = `
-      <div class="item-title" onclick="toggleQty(this)">${item.emoji} ${item.name} <span>${item.price} Kč</span></div>
+      <div class="dessert-title" onclick="toggleQty(this)">${item.emoji} ${item.name} <span>${item.price} Kč</span></div>
       <div class="description">${item.desc}</div>
       <div class="qty-selector">
         <button onclick="changeQty(this, -1)">−</button>
@@ -130,12 +128,10 @@ function renderItems() {
   });
 }
 
-window.onload = renderItems;
-
-const selectedItems = [];
+window.onload = renderDesserts;
 
 function toggleQty(titleEl) {
-  const parent = titleEl.closest('.item');
+  const parent = titleEl.closest('.dessert');
   const qty = parent.querySelector('.qty-selector');
   qty.style.display = 'flex';
   qty.style.flexDirection = 'row';
@@ -150,35 +146,32 @@ function changeQty(btn, change) {
 
 function confirmQty(e) {
   e.stopPropagation();
-  const parent = e.target.closest('.item');
-  const name = parent.querySelector('.item-title').innerText;
+  const parent = e.target.closest('.dessert');
+  const name = parent.querySelector('.dessert-title').innerText;
   const qty = parseInt(parent.querySelector('.qty-selector span').innerText);
   if (qty > 0) {
-    selectedItems.push({ name, qty });
+    selected.push({ name, qty });
     alert(`${name} × ${qty} přidáno do objednávky.`);
     parent.querySelector('.qty-selector').style.display = 'none';
   }
 }
 
 function placeOrder() {
-  if (selectedItems.length === 0) {
+  if (selected.length === 0) {
     alert('Nejdřív si něco objednej!');
     return;
   }
-  let summary = 'Tvoje objednávka:
-';
+  let summary = 'Tvoje objednávka:\n';
   let total = 0;
-  selectedItems.forEach(d => {
-    summary += `${d.name} × ${d.qty}
-`;
-    const price = parseInt(d.name.match(/(\d+)/g)?.pop() || 0);
-    total += price * d.qty;
+  selected.forEach(item => {
+    summary += `${item.name} × ${item.qty}\n`;
+    const price = parseInt(item.name.match(/(\d+)/g).pop());
+    total += price * item.qty;
   });
-  summary += `
-Celkem: ${total} Kč`;
+  summary += `\nCelkem: ${total} Kč`;
   const nick = prompt(summary + '\n\nZadej svoji přezdívku:');
   if (nick) {
-    alert(`Díky ${nick}! Objednávka zpracována. Přijď si pro moučník. 🍰`);
+    alert(`Díky ${nick}! Objednávka zpracována. Dezertní láska na cestě! 🍰`);
   }
 }
 </script>
