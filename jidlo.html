@@ -181,20 +181,15 @@ function placeOrder() {
     alert('Nejdřív si něco objednej!');
     return;
   }
-  let summary = 'Tvoje objednávka:
-';
+  let summary = 'Tvoje objednávka:\n';
   let total = 0;
   selectedDrinks.forEach(d => {
-    summary += `${d.name} × ${d.qty}
-`;
+    summary += `${d.name} × ${d.qty}\n`;
     const price = parseInt(d.name.match(/(\d+)/g).pop());
     total += price * d.qty;
   });
-  summary += `
-Celkem: ${total} Kč`;
-  const nick = prompt(summary + '
-
-Zadej svoji přezdívku:');
+  summary += `\nCelkem: ${total} Kč`;
+  const nick = prompt(summary + '\n\nZadej svoji přezdívku:');
   if (nick) {
     alert(`Díky ${nick}! Objednávka zpracována. Přijď si pro jídlo. 🍔`);
   }
