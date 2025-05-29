@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kombo Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-image: url('background_combo_menu.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Luckiest Guy', cursive;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .combo {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      font-size: 1.5rem;
+    }
+
+    .combo-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .combo-desc {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .combo-price {
+      font-size: 1.4rem;
+      color: #00e676;
+    }
+
+    .bottom-buttons {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
+    }
+
+    .bottom-buttons button {
+      font-size: 1.4rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Luckiest Guy', cursive;
+      width: 48%;
+    }
+
+    #orderBtn {
+      background-color: #00c853;
+      color: white;
+    }
+
+    #homeBtn {
+      background-color: #ffab00;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="combo">
+  <div class="combo-title">🔥 MENU #1 – Startér dne</div>
+  <div class="combo-desc">🌯 Kuřecí wrap + 💧 Neperlivá voda + 🍏 Štrúdlová smršť</div>
+  <div class="combo-price">207 Kč</div>
+</div>
+
+<div class="combo">
+  <div class="combo-title">🌞 MENU #2 – Festivalový chill</div>
+  <div class="combo-desc">🌭 Hot Dog + 🍹 Hugo + 🍦 Zmrzlina</div>
+  <div class="combo-price">239 Kč</div>
+</div>
+
+<div class="combo">
+  <div class="combo-title">💥 MENU #3 – Bouřka chutí</div>
+  <div class="combo-desc">🧀 Cheeseburger + 🍸 Aperol + 🍰 Buchtobomba</div>
+  <div class="combo-price">320 Kč</div>
+</div>
+
+<div class="combo">
+  <div class="combo-title">🔥 MENU #4 – Kouřová klasika</div>
+  <div class="combo-desc">🔥 Špekáček + 🥃 Rum cola + 🍓 Sladký PO-JO sen</div>
+  <div class="combo-price">243 Kč</div>
+</div>
+
+<div class="combo">
+  <div class="combo-title">🛸 MENU #5 – Ufo návštěva</div>
+  <div class="combo-desc">🍔 PO-JO Beef Burger + 🍹 Punch bowl + 🍮 Sladký PO-JO sen</div>
+  <div class="combo-price">387 Kč</div>
+</div>
+
+<div class="combo">
+  <div class="combo-title">🎯 MENU #6 – Rychlá trefa</div>
+  <div class="combo-desc">🌭 Párek v rohlíku + ☕ Káva + 🍩 PO-JO donut</div>
+  <div class="combo-price">104 Kč</div>
+</div>
+
+<div class="bottom-buttons">
+  <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
+  <button id="orderBtn" onclick="alert('Objednávková funkce bude doplněna.')">🛒 Objednat</button>
+</div>
+
+</body>
+</html>
