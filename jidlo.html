@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jídlo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-image: url('background_food.jpg');
+      background-size: cover;
+      background-position: center top;
+      font-family: 'Luckiest Guy', cursive;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .drink {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px 0;
+      font-size: 1.2rem;
+      cursor: default;
+    }
+
+    .drink-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.7rem;
+      flex-wrap: wrap;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      margin-top: 8px;
+    }
+
+    .qty-selector {
+      display: none;
+      margin-top: 10px;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .qty-selector button {
+      font-size: 1.2rem;
+      background: #fff;
+      color: black;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Luckiest Guy', cursive;
+    }
+
+    .qty-selector span {
+      font-size: 1.2rem;
+    }
+
+    .qty-selector .confirm-btn {
+      background-color: #ff4081;
+      color: white;
+    }
+
+    .bottom-buttons {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
+    }
+
+    .bottom-buttons button {
+      font-size: 1.4rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Luckiest Guy', cursive;
+      width: 48%;
+    }
+
+    #orderBtn {
+      background-color: #00c853;
+      color: white;
+    }
+
+    #homeBtn {
+      background-color: #ffab00;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .drink-title { font-size: 1.3rem; }
+      .description { font-size: 1rem; }
+      .qty-selector button, .qty-selector span { font-size: 1rem; }
+      .bottom-buttons button { font-size: 1.2rem; padding: 8px; }
+    }
+
+    @media (min-width: 1024px) {
+      .drink-title { font-size: 2rem; }
+      .description { font-size: 1.4rem; }
+      .qty-selector button, .qty-selector span { font-size: 1.3rem; }
+      .bottom-buttons button { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<script>
+const drinks = [
+  { emoji: "🥪", name: "Club sandwich", price: 170, desc: "Trojitý útok chutí, salátu a slaniny – poskládaný jako LEGO pro gurmány!" },
+  { emoji: "🍔", name: "PO-JO Beef Burger", price: 225, desc: "Šťavnatý král večera s podpisem PO-JO – víc masa než v pondělní hádce!" },
+  { emoji: "🧀", name: "Cheeseburger", price: 180, desc: "Roztékající se sýr a hovězí? Láska na první kousnutí 🧡" },
+  { emoji: "🌭", name: "Párek v rohlíku", price: 35, desc: "Klasika všech festivalů – nenáročný kámoš s velkým srdcem." },
+  { emoji: "🔥", name: "Špekáček", price: 75, desc: "Lehce připálený, ale za to s charakterem – špeko, co voní po ohništi!" },
+  { emoji: "🍟", name: "Hranolky", price: 45, desc: "Křupavé, zlaté a mizí rychleji než stories po večírku 🍟" },
+  { emoji: "🌭", name: "Hot Dog", price: 75, desc: "Dlouhý, šťavnatý a vždy připravený zachránit hladovou duši." },
+  { emoji: "🌯", name: "Kuřecí wrap", price: 155, desc: "Kuřecí, zelenina, omáčka a tortilla – zabalené překvapení s happy endem!" }
+];
+
+function renderDrinks() {
+  const body = document.body;
+  drinks.forEach(drink => {
+    const div = document.createElement('div');
+    div.className = 'drink';
+    div.innerHTML = `
+      <div class="drink-title" onclick="toggleQty(this)">${drink.emoji} ${drink.name} <span>${drink.price} Kč</span></div>
+      <div class="description">${drink.desc}</div>
+      <div class="qty-selector">
+        <button onclick="changeQty(this, -1)">−</button>
+        <span>0</span>
+        <button onclick="changeQty(this, 1)">+</button>
+        <button class="confirm-btn" onclick="confirmQty(event)">OK</button>
+      </div>
+    `;
+    body.insertBefore(div, document.querySelector('.bottom-buttons'));
+  });
+}
+
+window.onload = renderDrinks;
+
+const selectedDrinks = [];
+
+function toggleQty(titleEl) {
+  const parent = titleEl.closest('.drink');
+  const qty = parent.querySelector('.qty-selector');
+  qty.style.display = 'flex';
+  qty.style.flexDirection = 'row';
+}
+
+function changeQty(btn, change) {
+  const span = btn.parentElement.querySelector('span');
+  let current = parseInt(span.innerText);
+  current = Math.max(0, current + change);
+  span.innerText = current;
+}
+
+function confirmQty(e) {
+  e.stopPropagation();
+  const parent = e.target.closest('.drink');
+  const name = parent.querySelector('.drink-title').innerText;
+  const qty = parseInt(parent.querySelector('.qty-selector span').innerText);
+  if (qty > 0) {
+    selectedDrinks.push({ name, qty });
+    alert(`${name} × ${qty} přidáno do objednávky.`);
+    parent.querySelector('.qty-selector').style.display = 'none';
+  }
+}
+
+function placeOrder() {
+  if (selectedDrinks.length === 0) {
+    alert('Nejdřív si něco objednej!');
+    return;
+  }
+  let summary = 'Tvoje objednávka:
+';
+  let total = 0;
+  selectedDrinks.forEach(d => {
+    summary += `${d.name} × ${d.qty}
+`;
+    const price = parseInt(d.name.match(/(\d+)/g).pop());
+    total += price * d.qty;
+  });
+  summary += `
+Celkem: ${total} Kč`;
+  const nick = prompt(summary + '
+
+Zadej svoji přezdívku:');
+  if (nick) {
+    alert(`Díky ${nick}! Objednávka zpracována. Přijď si pro jídlo. 🍔`);
+  }
+}
+</script>
+
+<div class="bottom-buttons">
+  <button id="homeBtn" onclick="window.location.href='index.html'">🏠 Domů</button>
+  <button id="orderBtn" onclick="placeOrder()">🛒 Objednat</button>
+</div>
+
+</body>
+</html>
