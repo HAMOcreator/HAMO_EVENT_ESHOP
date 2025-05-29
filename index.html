@@ -1,67 +1,108 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PO-JO KOKTEJLY A SNY</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url('background_main.jpg');
-      background-size: cover;
-      background-position: top;
-      background-repeat: no-repeat;
-      font-family: 'Luckiest Guy', cursive, sans-serif;
-    }
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-    .nav a {
-      margin: 5px 10px;
-      font-size: 1.3rem;
-      text-decoration: none;
-      color: white;
-      text-shadow:
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
-      transition: transform 0.2s ease-in-out;
-    }
-    .nav a:hover {
-      transform: scale(1.2);
-    }
-    .nav .right {
-      margin-left: auto;
-    }
-    @media (max-width: 768px) {
-      .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .nav a {
-        font-size: 1rem;
-        margin: 8px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>PO-JO MERCH</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('background_merch.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .product {
+            border: 2px solid white;
+            border-radius: 15px;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .qty-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .qty-controls button {
+            font-size: 20px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000;
+            cursor: pointer;
+        }
+        .qty-controls span {
+            font-size: 18px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="nav">
-    <a href="jidlo.html">🥪 JÍDLO</a>
-    <a href="moucniky.html">🍰 MOUČNÍKY</a>
-    <a href="napoje.html">🥤 NÁPOJE</a>
-    <a href="combo_menu.html">🍽️ KOMBO MENU</a>
-    <a href="#">🎉 PLÁNOVANÉ EVENTY</a>
-    <a href="#">👕 MERCH</a>
-    <a href="#" class="right">🛒 KOŠÍK</a>
-  </div>
+    <h1>MERCH od PO-JO 🛍️</h1>
+    <div id="products"></div>
+
+    <script>
+        const products = [
+            { emoji: "🧔‍♂️", name: "pansketriko", title: "Pánské tričko", desc: "Styl, pohodlí a špetka testosteronu v jednom 🔥👕💪", hasImage: true },
+            { emoji: "👩‍🎤", name: "damsketriko", title: "Dámské tričko", desc: "Když chceš vypadat cool i při pití mléčného koktejlu 🍓💃✨", hasImage: true },
+            { emoji: "☕", name: "hrnek", title: "Termo hrnek", desc: "Drží kafe teplý a ruce stylový – tvůj nový ranní spojenec 🛻☕🧤", hasImage: true },
+            { emoji: "👻", name: "bilamikina", title: "Mikina s kapucí", desc: "Zahřeje víc než pohled barmana po třetím drinku 🍸❄️🧥", hasImage: true },
+            { emoji: "🔑", name: "", title: "Klíčenka", desc: "Zboží připravujeme. 🎪🤯🗝️", hasImage: false },
+            { emoji: "🧢", name: "", title: "Stylová kšiltovka", desc: "Zboží připravujeme. 🌞🧢😎", hasImage: false },
+            { emoji: "🎩", name: "", title: "Kulich", desc: "Zboží připravujeme. 🧊🎶🧶", hasImage: false },
+            { emoji: "🛍️", name: "", title: "Plátěná taška", desc: "Zboží připravujeme. 🥤💚👜", hasImage: false },
+            { emoji: "📿", name: "", title: "Náramek s logem", desc: "Zboží připravujeme. 🧑‍🤝‍🧑🌟💫", hasImage: false },
+            { emoji: "🧼", name: "", title: "Osuška", desc: "Zboží připravujeme. 🌊🍺🧖‍♂️", hasImage: false },
+        ];
+
+        const container = document.getElementById('products');
+
+        products.forEach((product, index) => {
+            const div = document.createElement('div');
+            div.className = 'product';
+
+            const img = product.hasImage
+                ? `<img src="${product.name}.jpg" alt="${product.title}">`
+                : `<p><em>${product.desc}</em></p>`;
+
+            const desc = product.hasImage
+                ? `<p>${product.desc}</p>`
+                : '';
+
+            const controls = product.hasImage
+                ? `<div class="qty-controls">
+                        <button onclick="decrease(${index})">−</button>
+                        <span id="qty-${index}">0</span>
+                        <button onclick="increase(${index})">+</button>
+                   </div>`
+                : '';
+
+            div.innerHTML = `<h2>${product.emoji} ${product.title}</h2>${img}${desc}${controls}`;
+            container.appendChild(div);
+        });
+
+        function increase(i) {
+            const el = document.getElementById(`qty-${i}`);
+            el.textContent = parseInt(el.textContent) + 1;
+        }
+
+        function decrease(i) {
+            const el = document.getElementById(`qty-${i}`);
+            const current = parseInt(el.textContent);
+            if (current > 0) el.textContent = current - 1;
+        }
+    </script>
 </body>
 </html>
