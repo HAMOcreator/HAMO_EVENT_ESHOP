@@ -9,31 +9,36 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
       font-family: 'Luckiest Guy', cursive, sans-serif;
       background-image: url('background_POJO.png');
-      background-size: cover;
-      background-position: center;
+      background-size: contain;
+      background-position: center top;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      align-items: center;
     }
 
     .nav {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
-      background-color: rgba(255, 255, 255, 0.9);
+      justify-content: center;
+      align-items: center;
       padding: 10px;
-      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
     }
 
     .nav a {
-      flex: 0 0 auto;
-      margin: 0 10px;
+      margin: 5px 15px;
       font-size: 1.2rem;
+      white-space: nowrap;
       text-decoration: none;
       color: white;
       text-shadow:
@@ -48,35 +53,33 @@
       transform: scale(1.2);
     }
 
-    .nav .right {
-      margin-left: auto;
-    }
-
     .banner {
-      position: fixed;
-      bottom: 10px;
-      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 40px;
       text-align: center;
       font-size: 1rem;
       color: white;
       text-shadow: 2px 2px 4px black;
       animation: pulse 2s infinite;
-      pointer-events: none;
       z-index: 5;
     }
 
     @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
+      .nav {
+        overflow-x: auto;
+      }
+      .nav a {
+        font-size: 1rem;
+        margin: 10px;
+      }
       .banner {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -85,7 +88,7 @@
   <div class="nav">
     <a href="jidlo.html">🍔 FOODCORE ZÓNA</a>
     <a href="moucniky.html">🍰 SLADKÁ APOKALYPSA</a>
-    <a href="napoje.html">🍹 RAVE DRINK BAR</a>
+    <a href="napoje.html">🥤 RAVE DRINK BAR</a>
     <a href="kombo_menu.html">🍽️ FULL HOUSE KOMBO</a>
     <a href="#">🎉 PLÁNOVANÉ EVENTY</a>
     <a href="merch.html">👕 MERCH</a>
