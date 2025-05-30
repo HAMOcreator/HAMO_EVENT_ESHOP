@@ -12,12 +12,13 @@
       font-family: 'Luckiest Guy', cursive, sans-serif;
       background-image: url('background_POJO.png');
       background-size: contain;
-      background-position: center top;
+      background-position: top center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
     }
 
@@ -53,15 +54,20 @@
       transform: scale(1.2);
     }
 
-    .banner {
-      margin-top: 20px;
-      margin-bottom: 40px;
+    .banner-wrapper {
+      margin-top: auto;
+      width: 100%;
       text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .banner {
       font-size: 1rem;
       color: white;
+      padding: 20px 10px;
       text-shadow: 2px 2px 4px black;
       animation: pulse 2s infinite;
-      z-index: 5;
     }
 
     @keyframes pulse {
@@ -71,15 +77,14 @@
     }
 
     @media (max-width: 768px) {
-      .nav {
-        overflow-x: auto;
-      }
       .nav a {
         font-size: 1rem;
         margin: 10px;
       }
+
       .banner {
         font-size: 0.9rem;
+        padding: 15px 5px;
       }
     }
   </style>
@@ -95,6 +100,8 @@
     <a href="#" class="right">🛒 KOŠÍK</a>
   </div>
 
-  <div class="banner">✨🍹 PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe 🍔🔥</div>
+  <div class="banner-wrapper">
+    <div class="banner">✨🍹 PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe 🍔🔥</div>
+  </div>
 </body>
 </html>
