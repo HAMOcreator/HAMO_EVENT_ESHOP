@@ -9,17 +9,17 @@
     body {
       margin: 0;
       padding: 0;
+      font-family: 'Luckiest Guy', cursive;
       background-image: url('background_POJO.png');
       background-size: cover;
-      background-position: center top;
+      background-position: center;
       background-repeat: no-repeat;
-      font-family: 'Luckiest Guy', cursive;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
       background-color: rgba(255, 255, 255, 0.9);
@@ -27,10 +27,14 @@
 
     .nav a {
       margin: 5px 10px;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       text-decoration: none;
       color: white;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
       transition: transform 0.2s ease-in-out;
     }
 
@@ -38,30 +42,30 @@
       transform: scale(1.2);
     }
 
+    .nav .right {
+      margin-left: auto;
+    }
+
     .banner {
-      width: 100%;
-      text-align: center;
-      font-size: 1rem;
-      color: white;
-      text-shadow: 2px 2px 3px black;
-      padding: 20px 10px;
-      z-index: 10;
       position: relative;
-      background: transparent; /* >>> KLÍČOVÉ! <<< */
+      z-index: 5;
+      text-align: center;
       margin-top: 20px;
+      font-size: 1.2rem;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+      background-color: transparent;
     }
 
     @media (max-width: 768px) {
       .nav {
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        flex-wrap: wrap;
+        justify-content: center;
       }
-
       .nav a {
         font-size: 1rem;
-        flex: 0 0 auto;
+        margin: 8px;
       }
-
       .banner {
         font-size: 0.9rem;
       }
@@ -72,16 +76,15 @@
   <div class="nav">
     <a href="jidlo.html">🍔 FOODCORE ZÓNA</a>
     <a href="moucniky.html">🍰 SLADKÁ APOKALYPSA</a>
-    <a href="napoje.html">🍹 RAVE DRINK BAR</a>
+    <a href="napoje.html">🍸 RAVE DRINK BAR</a>
     <a href="kombo_menu.html">🍽️ FULL HOUSE KOMBO</a>
     <a href="#">🎉 PLÁNOVANÉ EVENTY</a>
     <a href="merch.html">👕 MERCH</a>
     <a href="#" class="right">🛒 KOŠÍK</a>
   </div>
 
-  <!-- Banner umístěný pod fotkami -->
-  <div class="banner">
-    ✨🍹 PO-JO KOKTEJLY A SNY – TVOJE ZASTÁVKA PRO CHUŤ, STYL A VIBE 🍔🔥
-  </div>
+  <div style="height: 100dvh;"></div> <!-- simulace hlavního obsahu -->
+
+  <div class="banner">✨🍹 PO-JO KOKTEJLY A SNY – TVOJE ZASTÁVKA PRO CHUŤ, STYL A VIBE 🍔🔥</div>
 </body>
 </html>
