@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>PO-JO MERCH</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
         body {
             margin: 0;
-            font-family: 'Luckiest Guy', cursive;
+            font-family: 'Orbitron', sans-serif;
             background: url('background_merch.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -34,7 +34,6 @@
             border-radius: 15px;
             padding: 20px;
             width: 300px;
-            position: relative;
         }
 
         .product img {
@@ -73,51 +72,25 @@
         .qty-controls span {
             font-size: 1.2em;
         }
-
-        .add-to-cart {
-            margin-top: 10px;
-            display: none;
-        }
-
-        .add-to-cart button {
-            font-size: 1em;
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: none;
-            background-color: #ff4081;
-            color: white;
-            cursor: pointer;
-        }
-
-        .home-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #ff4081;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Luckiest Guy', cursive;
-        }
     </style>
 </head>
 <body>
     <h1>🛍️ MERCH PO-JO</h1>
     <div class="product-grid" id="products"></div>
 
-    <a href="index.html" class="home-button">🏠 Domů</a>
-
     <script>
-        const merchItems = [
-            { emoji: "🧄", title: "Pánské tričko", img: "pansketriko.jpg", desc: "Styl, pohodlí a špetka testosteronu v jednom 🔥👕💪" },
-            { emoji: "👩‍🎤", title: "Dámské tričko", img: "damsketriko.jpg", desc: "Když chceš vypadat cool i při pití mléčného koktejlu 🍓💃✨" },
-            { emoji: "☕", title: "Termo hrnek", img: "hrnek.jpg", desc: "Drží kafe teplý a ruce stylový – tvůj nový ranní spojenec 🚛☕🧤" },
-            { emoji: "👻", title: "Mikina s kapucí", img: "bilamikyna.jpg", desc: "Zahřeje víc než pohled barmana po třetím drinku 🍸❄️🧕" },
-            { emoji: "🔑", title: "Klíčenka", img: "klicenka.jpg", desc: "Tahle klíčenka možná neotevře srdce tvé ex, ale dveře určitě. 🗡️😅💔" },
+       const merchItems = [
+  { emoji: "🧔‍♂️", title: "Pánské tričko", img: "pansketriko.jpg", desc: "Styl, pohodlí a špetka testosteronu v jednom 🔥👕💪" },
+  { emoji: "👩‍🎤", title: "Dámské tričko", img: "damsketriko.jpg", desc: "Když chceš vypadat cool i při pití mléčného koktejlu 🍓💃✨" },
+  { emoji: "☕", title: "Termo hrnek", img: "hrnek.jpg", desc: "Drží kafe teplý a ruce stylový – tvůj nový ranní spojenec 🛻☕🧤" },
+  { emoji: "👻", title: "Mikina s kapucí", img: "bilamikyna.jpg", desc: "Zahřeje víc než pohled barmana po třetím drinku 🍸❄️🧥" },
+  { emoji: "🔑", title: "Klíčenka", img: "klicenka.jpg", desc: "Tahle klíčenka možná neotevře srdce tvé ex, ale dveře určitě. 🗝️😅💔" },
+  { emoji: "🧢", title: "Stylová kšiltovka", img: "ksiltovka.jpg", desc: "Chrání před sluncem i trapnými pohledy. Nasadíš a jseš král streetu. 🧢🛹🌞" },
+  { emoji: "🎩", title: "Kulich", img: "kulich.jpg", desc: "V zimě teplý, v létě stylový, v každým ročním období naprosto legendární. ❄️🔥🧠" },
+  { emoji: "🛍️", title: "Plátěná taška", img: "taska.jpg", desc: "Unese drinky, sny i random věci z festivalu. Taška, co ví svoje. 👜🎪🌈" },
+  { emoji: "📿", title: "Náramek s logem", img: "naramek.jpg", desc: "Tohle není náramek, to je teleport do vesmíru PO-JO. 🚀✨👾" },
+  { emoji: "🧼", title: "Osuška", img: "osuska.jpg", desc: "Zabal se jako burrito po koupeli. Voní po koktejlech a divoký noci. 🍹🛁🌅" },
+
         ];
 
         const container = document.getElementById('products');
@@ -126,39 +99,36 @@
             const productDiv = document.createElement('div');
             productDiv.className = 'product';
 
-            const image = `<img src="${item.img}" alt="${item.title}">`;
+            const image = item.img
+                ? <img src="${item.img}" alt="${item.title}">
+                : <p><em>${item.desc}</em></p>;
 
-            productDiv.innerHTML = `
+            const qtyControls = item.img
+                ? <div class="qty-controls">
+                        <button onclick="decrease(${i})">−</button>
+                        <span id="qty-${i}">0</span>
+                        <button onclick="increase(${i})">+</button>
+                   </div>
+                : '';
+
+            productDiv.innerHTML = 
                 <h2>${item.emoji} ${item.title}</h2>
-                ${image}
+                ${item.img ? image : ''}
                 <p>${item.desc}</p>
-                <div class="qty-controls">
-                    <button onclick="changeQty(${i}, -1)">−</button>
-                    <span id="qty-${i}">0</span>
-                    <button onclick="changeQty(${i}, 1)">+</button>
-                </div>
-                <div class="add-to-cart" id="add-btn-${i}">
-                    <button onclick="addToCart(${i})">Přidat do košíku</button>
-                </div>
-            `;
-
+                ${qtyControls}
+            ;
             container.appendChild(productDiv);
         });
 
-        function changeQty(i, delta) {
-            const qtyEl = document.getElementById(`qty-${i}`);
-            let qty = parseInt(qtyEl.textContent);
-            qty = Math.max(0, qty + delta);
-            qtyEl.textContent = qty;
-
-            const addBtn = document.getElementById(`add-btn-${i}`);
-            addBtn.style.display = qty > 0 ? 'block' : 'none';
+        function increase(i) {
+            const el = document.getElementById(qty-${i});
+            el.textContent = parseInt(el.textContent) + 1;
         }
 
-        function addToCart(i) {
-            const qty = parseInt(document.getElementById(`qty-${i}`).textContent);
-            alert(`${merchItems[i].title} (${qty} ks) přidáno do košíku!`);
-            // Zde bys mohl uložit do localStorage nebo přesměrovat do košíku
+        function decrease(i) {
+            const el = document.getElementById(qty-${i});
+            const value = parseInt(el.textContent);
+            if (value > 0) el.textContent = value - 1;
         }
     </script>
 </body>
