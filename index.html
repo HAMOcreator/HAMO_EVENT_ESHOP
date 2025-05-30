@@ -9,22 +9,30 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('background_main.jpg');
-      background-size: cover;
-      background-position: top;
-      background-repeat: no-repeat;
       font-family: 'Luckiest Guy', cursive, sans-serif;
+      background: url('background_POJO.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
     }
+
     .nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: rgba(255, 255, 255, 0.9);
+      overflow-x: auto;
+      white-space: nowrap;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 10px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
     .nav a {
-      margin: 5px 10px;
+      flex: 0 0 auto;
+      margin: 0 10px;
       font-size: 1.3rem;
       text-decoration: none;
       color: white;
@@ -35,30 +43,29 @@
          1px  1px 0 #000;
       transition: transform 0.2s ease-in-out;
     }
+
     .nav a:hover {
       transform: scale(1.2);
     }
+
     .nav .right {
       margin-left: auto;
     }
+
     @media (max-width: 768px) {
-      .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
       .nav a {
         font-size: 1rem;
-        margin: 8px;
+        margin: 0 8px;
       }
     }
   </style>
 </head>
 <body>
   <div class="nav">
-    <a href="jidlo.html">🥪 JÍDLO</a>
-    <a href="moucniky.html">🍰 MOUČNÍKY</a>
-    <a href="napoje.html">🥤 NÁPOJE</a>
-    <a href="kombo_menu.html">🍽️ KOMBO MENU</a>
+    <a href="jidlo.html">🍔 FOODCORE ZÓNA</a>
+    <a href="moucniky.html">🍰 SLADKÁ APOKALYPSA</a>
+    <a href="napoje.html">🍹 RAVE DRINK BAR</a>
+    <a href="kombo_menu.html">🍽️ FULL HOUSE KOMBO</a>
     <a href="#">🎉 PLÁNOVANÉ EVENTY</a>
     <a href="merch.html">👕 MERCH</a>
     <a href="#" class="right">🛒 KOŠÍK</a>
