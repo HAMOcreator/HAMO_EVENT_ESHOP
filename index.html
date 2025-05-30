@@ -10,8 +10,10 @@
       margin: 0;
       padding: 0;
       font-family: 'Luckiest Guy', cursive, sans-serif;
-      background: url('backgroundPOJO.png') no-repeat center center fixed;
+      background-image: url('background_POJO.png');
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .nav {
@@ -19,14 +21,13 @@
       flex-wrap: nowrap;
       overflow-x: auto;
       background-color: rgba(255, 255, 255, 0.9);
-      padding: 10px 0;
-      white-space: nowrap;
+      padding: 10px;
     }
 
     .nav a {
-      display: inline-block;
-      margin: 0 15px;
-      font-size: 1.3rem;
+      flex: 0 0 auto;
+      margin: 0 10px;
+      font-size: 1.2rem;
       text-decoration: none;
       color: white;
       text-shadow:
@@ -41,75 +42,55 @@
       transform: scale(1.2);
     }
 
-    .nav::-webkit-scrollbar {
-      display: none;
+    .nav .right {
+      margin-left: auto;
     }
 
-    .content {
-      min-height: 80vh; /* místo pro obsah nebo fotky */
-    }
-
-    .hero-banner {
+    .banner {
+      position: fixed;
+      bottom: 20px;
       width: 100%;
-      height: auto;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 15px;
-    }
-
-    .hero-text {
       font-size: 1.2rem;
-      color: #fff;
-      padding: 10px 20px;
-      animation: pulseZoom 3s ease-in-out infinite;
-      text-shadow: 2px 2px 4px #ff00cc;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+      animation: pulse 2s infinite;
+      pointer-events: none;
     }
 
-    @keyframes pulseZoom {
+    @keyframes pulse {
       0%, 100% {
         transform: scale(1);
-        opacity: 1;
       }
       50% {
         transform: scale(1.05);
-        opacity: 0.95;
       }
     }
 
-    @media (min-width: 768px) {
-      .hero-text {
-        font-size: 1.6rem;
+    @media (max-width: 768px) {
+      .nav {
+        justify-content: center;
+      }
+      .nav a {
+        font-size: 1rem;
+      }
+      .banner {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigační menu -->
   <div class="nav">
-    <a href="jidlo.html">🌯 FOODCORE ZÓNA</a>
+    <a href="jidlo.html">🍔 FOODCORE ZÓNA</a>
     <a href="moucniky.html">🍰 SLADKÁ APOKALYPSA</a>
     <a href="napoje.html">🍹 RAVE DRINK BAR</a>
     <a href="kombo_menu.html">🍽️ FULL HOUSE KOMBO</a>
     <a href="#">🎉 PLÁNOVANÉ EVENTY</a>
     <a href="merch.html">👕 MERCH</a>
-    <a href="#" style="margin-left:auto;">🛒 KOŠÍK</a>
+    <a href="#" class="right">🛒 KOŠÍK</a>
   </div>
 
-  <!-- Místo pro fotky nebo obsah -->
-  <div class="content">
-    <!-- Tady můžeš mít 5 fotek nebo cokoli dalšího -->
-  </div>
-
-  <!-- Banner ve spodní části -->
-  <div class="hero-banner">
-    <div class="hero-text">
-      🎧🍹 PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe 🍔🎉
-    </div>
-  </div>
-
+  <div class="banner">✨🍹 PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe 🍔🔥</div>
 </body>
 </html>
