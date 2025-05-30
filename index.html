@@ -6,28 +6,29 @@
   <title>PO-JO KOKTEJLY A SNY</title>
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Luckiest Guy', cursive;
-      background-image: url('background_POJO.png');
+      background: url('background_POJO.png') no-repeat center top;
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      font-family: 'Luckiest Guy', cursive, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-
-    .nav {
+    .nav-scroll {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: rgba(255, 255, 255, 0.9);
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+      background: rgba(255,255,255,0.9);
+      justify-content: flex-start;
     }
-
-    .nav a {
-      margin: 5px 10px;
-      font-size: 1.3rem;
+    .nav-scroll a {
+      margin: 0 10px;
+      font-size: 1.2rem;
       text-decoration: none;
       color: white;
       text-shadow:
@@ -35,56 +36,48 @@
          1px -1px 0 #000,
         -1px  1px 0 #000,
          1px  1px 0 #000;
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s;
     }
-
-    .nav a:hover {
+    .nav-scroll a:hover {
       transform: scale(1.2);
     }
-
-    .nav .right {
-      margin-left: auto;
-    }
-
     .banner {
       position: relative;
-      z-index: 5;
+      z-index: 10;
+      bottom: 20px;
+      width: 100%;
       text-align: center;
-      margin-top: 20px;
       font-size: 1.2rem;
       color: white;
-      text-shadow: 2px 2px 5px black;
-      background-color: transparent;
+      text-shadow: 2px 2px 4px black;
+      animation: pulse 2s infinite;
     }
-
-    @media (max-width: 768px) {
-      .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .nav a {
-        font-size: 1rem;
-        margin: 8px;
-      }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @media (min-width: 768px) {
       .banner {
-        font-size: 0.9rem;
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="nav">
+  <div class="nav-scroll">
     <a href="jidlo.html">🍔 FOODCORE ZÓNA</a>
     <a href="moucniky.html">🍰 SLADKÁ APOKALYPSA</a>
-    <a href="napoje.html">🍸 RAVE DRINK BAR</a>
+    <a href="napoje.html">🍹 RAVE DRINK BAR</a>
     <a href="kombo_menu.html">🍽️ FULL HOUSE KOMBO</a>
     <a href="#">🎉 PLÁNOVANÉ EVENTY</a>
     <a href="merch.html">👕 MERCH</a>
-    <a href="#" class="right">🛒 KOŠÍK</a>
+    <a href="#">🛒 KOŠÍK</a>
   </div>
 
-  <div style="height: 100dvh;"></div> <!-- simulace hlavního obsahu -->
-
-  <div class="banner">✨🍹 PO-JO KOKTEJLY A SNY – TVOJE ZASTÁVKA PRO CHUŤ, STYL A VIBE 🍔🔥</div>
+  <!-- BANNER -->
+  <div class="banner">
+    ✨🍹 PO-JO KOKTEJLY A SNY – TVOJE ZASTÁVKA PRO CHUŤ, STYL A VIBE 🍔🔥
+  </div>
 </body>
 </html>
