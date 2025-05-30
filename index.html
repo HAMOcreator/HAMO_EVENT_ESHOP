@@ -45,19 +45,23 @@
       display: none;
     }
 
+    .content {
+      min-height: 80vh; /* místo pro obsah nebo fotky */
+    }
+
     .hero-banner {
       width: 100%;
-      height: 180px;
-      background: rgba(0, 0, 0, 0.6); /* můžeš změnit na background-image */
+      height: auto;
+      background: rgba(0, 0, 0, 0.6);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      overflow: hidden;
+      padding: 15px;
     }
 
     .hero-text {
-      font-size: 1.8rem;
+      font-size: 1.2rem;
       color: #fff;
       padding: 10px 20px;
       animation: pulseZoom 3s ease-in-out infinite;
@@ -70,14 +74,14 @@
         opacity: 1;
       }
       50% {
-        transform: scale(1.08);
+        transform: scale(1.05);
         opacity: 0.95;
       }
     }
 
     @media (min-width: 768px) {
       .hero-text {
-        font-size: 2.5rem;
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -95,10 +99,15 @@
     <a href="#" style="margin-left:auto;">🛒 KOŠÍK</a>
   </div>
 
-  <!-- Hero banner -->
+  <!-- Místo pro fotky nebo obsah -->
+  <div class="content">
+    <!-- Tady můžeš mít 5 fotek nebo cokoli dalšího -->
+  </div>
+
+  <!-- Banner ve spodní části -->
   <div class="hero-banner">
     <div class="hero-text">
-      PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe
+      🎧🍹 PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe 🍔🎉
     </div>
   </div>
 
