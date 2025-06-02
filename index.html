@@ -14,6 +14,8 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      min-height: 100vh;
+      position: relative;
     }
 
     .nav {
@@ -22,6 +24,8 @@
       white-space: nowrap;
       padding: 10px 0;
       background-color: rgba(255, 255, 255, 0.8);
+      z-index: 20;
+      position: relative;
     }
 
     .nav a {
@@ -45,64 +49,44 @@
       }
     }
 
-    .content {
-      min-height: 80vh;
-      padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .content img {
-      width: 180px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      transform: rotate(-2deg);
-    }
-
-    /* BANNER */
     .banner {
+      position: fixed;
+      bottom: 10px;
       width: 100%;
       text-align: center;
-      margin: 40px 0 20px;
+      z-index: 30;
+      pointer-events: none; /* aby neblokoval klikání na nic */
     }
 
     .banner h1 {
-      font-size: 1.4rem; /* zmenšeno cca o 30 % */
+      font-size: 1.5rem;
       color: white;
-      background-color: transparent;
-      padding: 15px 10px;
-      margin: 0;
-      animation: pulse 2.5s infinite;
       text-shadow:
-        0 0 5px #ff4dc4,
-        0 0 10px #ff4dc4,
-        0 0 15px #ff4dc4,
-        2px 2px 3px black;
+        0 0 6px #ff4dc4,
+        0 0 12px #ff4dc4,
+        0 0 18px #ff4dc4,
+        2px 2px 4px black;
+      margin: 0;
+      padding: 10px;
+      background-color: transparent;
+      animation: pulse 2s infinite ease-in-out;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.08); }
       100% { transform: scale(1); }
     }
 
     @media (max-width: 768px) {
       .banner h1 {
         font-size: 1.1rem;
-        padding: 10px;
-      }
-
-      .content img {
-        width: 140px;
+        padding: 8px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Horizontální menu -->
   <div class="nav">
     <a href="jidlo.html">🌯 FOODCORE ZÓNA</a>
     <a href="moucniky.html">🍰 SLADKÁ APOKALYPSA</a>
@@ -113,10 +97,6 @@
     <a href="#" style="margin-left:auto;">🛒 KOŠÍK</a>
   </div>
 
-  <!-- Obsah (např. fotky) -->
-
-
-  <!-- Banner ve spodní části stránky -->
   <div class="banner">
     <h1>🎉🎈 PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe 🌟🍹</h1>
   </div>
