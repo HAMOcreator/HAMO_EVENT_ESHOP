@@ -45,39 +45,64 @@
       }
     }
 
+    .content {
+      min-height: 80vh;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .content img {
+      width: 180px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transform: rotate(-2deg);
+    }
+
+    /* BANNER */
     .banner {
-      position: relative;
       width: 100%;
       text-align: center;
-      margin-top: 50px;
-      margin-bottom: 30px;
-      z-index: 10;
+      margin: 40px 0 20px;
     }
 
     .banner h1 {
-      font-size: 2rem;
-      color: #ff4dc4;
-      text-shadow: 2px 2px 4px black;
+      font-size: 1.4rem; /* zmenšeno cca o 30 % */
+      color: white;
       background-color: transparent;
+      padding: 15px 10px;
       margin: 0;
-      padding: 20px 10px;
       animation: pulse 2.5s infinite;
+      text-shadow:
+        0 0 5px #ff4dc4,
+        0 0 10px #ff4dc4,
+        0 0 15px #ff4dc4,
+        2px 2px 3px black;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
 
-    .content {
-      min-height: 80vh;
-      padding-bottom: 100px; /* prostor pro banner */
-    }
+    @media (max-width: 768px) {
+      .banner h1 {
+        font-size: 1.1rem;
+        padding: 10px;
+      }
 
+      .content img {
+        width: 140px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Horizontální menu -->
   <div class="nav">
     <a href="jidlo.html">🌯 FOODCORE ZÓNA</a>
     <a href="moucniky.html">🍰 SLADKÁ APOKALYPSA</a>
@@ -88,10 +113,16 @@
     <a href="#" style="margin-left:auto;">🛒 KOŠÍK</a>
   </div>
 
+  <!-- Obsah (např. fotky) -->
   <div class="content">
-    <!-- Zde bude hlavní obsah (např. fotky, intro apod.) -->
+    <img src="foto1.jpg" alt="Party 1">
+    <img src="foto2.jpg" alt="Party 2">
+    <img src="foto3.jpg" alt="Party 3">
+    <img src="foto4.jpg" alt="Party 4">
+    <img src="foto5.jpg" alt="Party 5">
   </div>
 
+  <!-- Banner ve spodní části stránky -->
   <div class="banner">
     <h1>🎉🎈 PO-JO KOKTEJLY A SNY – Tvoje zastávka pro chuť, styl a vibe 🌟🍹</h1>
   </div>
