@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🛻 WHEELS FLEX</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Luckiest Guy', cursive, sans-serif;
+            background: url('background_wheels.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            padding: 20px;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .gallery img {
+                width: 100%;
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🛻 WHEELS FLEX</h1>
+    <div class="gallery">
+        <img src="foodtruck1.jpg" alt="Foodtruck 1">
+        <img src="foodtruck3.jpg" alt="Foodtruck 3">
+        <img src="foodtruck4.jpg" alt="Foodtruck 4">
+        <img src="trailer 2.jpg" alt="Trailer 2">
+        <img src="trailer1.jpg" alt="Trailer 1">
+        <img src="trailer3.jpg" alt="Trailer 3">
+    </div>
+</body>
+</html>
