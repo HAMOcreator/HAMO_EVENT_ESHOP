@@ -1,62 +1,121 @@
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>🛻 WHEELS FLEX</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Luckiest Guy', cursive, sans-serif;
-            background: url('background_wheels.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🛻 WHEELS FLEX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Luckiest Guy', cursive, sans-serif;
+      background: url('Back_wheels.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
 
-        h1 {
-            font-size: 3em;
-            padding: 20px;
-            text-shadow: 2px 2px 4px black;
-        }
+    h1 {
+      font-size: 3em;
+      padding: 20px;
+      text-shadow: 2px 2px 5px black;
+    }
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+    }
 
-        .gallery img {
-            width: 90%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
+    .gallery-item {
+      max-width: 500px;
+      width: 90%;
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
+    .gallery-item img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
 
-            .gallery img {
-                width: 100%;
-                max-width: 95%;
-            }
-        }
-    </style>
+    .caption {
+      margin-top: 10px;
+      font-size: 1.1em;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    .home-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ff4081;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Luckiest Guy', cursive;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .caption {
+        font-size: 0.9em;
+        padding: 0 10px;
+      }
+
+      .home-button {
+        font-size: 1em;
+        padding: 8px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>🛻 WHEELS FLEX</h1>
-    <div class="gallery">
-        <img src="foodtruck1.jpg" alt="Foodtruck 1">
-        <img src="foodtruck3.jpg" alt="Foodtruck 3">
-        <img src="foodtruck4.jpg" alt="Foodtruck 4">
-        <img src="trailer 2.jpg" alt="Trailer 2">
-        <img src="trailer1.jpg" alt="Trailer 1">
-        <img src="trailer3.jpg" alt="Trailer 3">
+  <h1>🛻 WHEELS FLEX</h1>
+
+  <div class="gallery">
+
+    <div class="gallery-item">
+      <img src="foodtruck1.jpg" alt="Foodtruck 1">
+      <div class="caption">🌞 Solo solar mode: Pojízdná elektrárna s burgerama a úsměvem. #ecoVibes</div>
     </div>
+
+    <div class="gallery-item">
+      <img src="foodtruck3.jpg" alt="Foodtruck 3">
+      <div class="caption">👫 Chill zóna level 99: fronta, která chutná i v čekání. #přirozenáParty</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="foodtruck4.jpg" alt="Foodtruck 4">
+      <div class="caption">🍊 Broskvový sen na kolech. Víc fresh už to nejde. #smoothFlex</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="trailer 2.jpg" alt="Trailer 2">
+      <div class="caption">🧁 Vanilková oáza ready na festivaly, chill i slowmo tanec. #aestheticBite</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="trailer1.jpg" alt="Trailer 1">
+      <div class="caption">🎈 Streetová elegance, kde se smaží styl i pohoda. #mainSquareFlex</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="trailer3.jpg" alt="Trailer 3">
+      <div class="caption">🔥 Fastfood v módu výtvarna – oranžová, co přitahuje hlad. #artsyBurger</div>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="home-button">🏠 Domů</a>
 </body>
 </html>
