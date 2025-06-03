@@ -1,121 +1,122 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🛻 WHEELS FLEX</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Luckiest Guy', cursive, sans-serif;
-      background: url('Back_wheels.png') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-align: center;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🛻 WHEELS FLEX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Luckiest Guy', cursive, sans-serif;
+            background: url('background_wheels.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
 
-    h1 {
-      font-size: 3em;
-      padding: 20px;
-      text-shadow: 2px 2px 5px black;
-    }
+        h1 {
+            font-size: 3em;
+            padding: 20px;
+            color: white;
+            text-shadow:
+                0 0 5px #00e6ff,
+                0 0 10px #00e6ff,
+                0 0 20px #00e6ff,
+                0 0 40px #00e6ff;
+            animation: pulse 2.5s infinite;
+            transition: transform 0.3s ease-in-out;
+        }
 
-    .gallery {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      padding: 20px;
-    }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
 
-    .gallery-item {
-      max-width: 500px;
-      width: 90%;
-    }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
 
-    .gallery-item img {
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
+        .gallery-item {
+            max-width: 500px;
+            width: 90%;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-bottom: 10px;
+        }
 
-    .caption {
-      margin-top: 10px;
-      font-size: 1.1em;
-      text-shadow: 1px 1px 3px black;
-    }
+        .gallery-item img {
+            width: 100%;
+            border-radius: 20px 20px 0 0;
+        }
 
-    .home-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #ff4081;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.2em;
-      cursor: pointer;
-      text-decoration: none;
-      font-family: 'Luckiest Guy', cursive;
-      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-    }
+        .gallery-item p {
+            margin: 10px;
+            font-size: 1rem;
+        }
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2em;
-      }
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #00e6ff;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Luckiest Guy', cursive;
+            box-shadow: 0 0 10px #00e6ff;
+        }
 
-      .caption {
-        font-size: 0.9em;
-        padding: 0 10px;
-      }
-
-      .home-button {
-        font-size: 1em;
-        padding: 8px 16px;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .gallery-item {
+                width: 95%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>🛻 WHEELS FLEX</h1>
+    <h1>🛻 WHEELS FLEX</h1>
 
-  <div class="gallery">
-
-    <div class="gallery-item">
-      <img src="foodtruck1.jpg" alt="Foodtruck 1">
-      <div class="caption">🌞 Solo solar mode: Pojízdná elektrárna s burgerama a úsměvem. #ecoVibes</div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="foodtruck1.jpg" alt="Foodtruck 1">
+            <p>🖤 Oldschool vzhled, co servíruje styl stejně tvrdě jako burgery. Respekt!</p>
+        </div>
+        <div class="gallery-item">
+            <img src="foodtruck3.jpg" alt="Foodtruck 3">
+            <p>🔥 Tento truck je ready na festival – blinkry svítí víc než DJ stage!</p>
+        </div>
+        <div class="gallery-item">
+            <img src="foodtruck4.jpg" alt="Foodtruck 4">
+            <p>🎪 Retro vibes a milkshaky, co ti otočí jazyk. Pure nostalgia drip.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="trailer 2.jpg" alt="Trailer 2">
+            <p>🌅 Západ slunce + PO-JO trailer = kombinace, co posílá vibes až do nebe.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="trailer1.jpg" alt="Trailer 1">
+            <p>🚀 Sci-fi zvenku, food rave zevnitř. Takový truck neparkuješ – vystavuješ!</p>
+        </div>
+        <div class="gallery-item">
+            <img src="trailer3.jpg" alt="Trailer 3">
+            <p>🎉 Party na kolech? Check. Styl? Check. Vůně hranolků? Taky check.</p>
+        </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="foodtruck3.jpg" alt="Foodtruck 3">
-      <div class="caption">👫 Chill zóna level 99: fronta, která chutná i v čekání. #přirozenáParty</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="foodtruck4.jpg" alt="Foodtruck 4">
-      <div class="caption">🍊 Broskvový sen na kolech. Víc fresh už to nejde. #smoothFlex</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="trailer 2.jpg" alt="Trailer 2">
-      <div class="caption">🧁 Vanilková oáza ready na festivaly, chill i slowmo tanec. #aestheticBite</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="trailer1.jpg" alt="Trailer 1">
-      <div class="caption">🎈 Streetová elegance, kde se smaží styl i pohoda. #mainSquareFlex</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="trailer3.jpg" alt="Trailer 3">
-      <div class="caption">🔥 Fastfood v módu výtvarna – oranžová, co přitahuje hlad. #artsyBurger</div>
-    </div>
-
-  </div>
-
-  <a href="index.html" class="home-button">🏠 Domů</a>
+    <a href="index.html" class="home-button">🏠 Domů</a>
 </body>
 </html>
