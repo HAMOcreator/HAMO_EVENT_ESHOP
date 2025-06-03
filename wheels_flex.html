@@ -1,122 +1,118 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>🛻 WHEELS FLEX</title>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Luckiest Guy', cursive, sans-serif;
-            background: url('background_wheels.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🛻 WHEELS FLEX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Luckiest Guy', cursive, sans-serif;
+      background: url('Back_wheels.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
 
-        h1 {
-            font-size: 3em;
-            padding: 20px;
-            color: white;
-            text-shadow:
-                0 0 5px #00e6ff,
-                0 0 10px #00e6ff,
-                0 0 20px #00e6ff,
-                0 0 40px #00e6ff;
-            animation: pulse 2.5s infinite;
-            transition: transform 0.3s ease-in-out;
-        }
+    h1 {
+      font-size: 2.5em;
+      padding: 30px 10px 10px;
+      color: white;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      animation: pulse 3s infinite;
+    }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
-        }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+    }
 
-        .gallery-item {
-            max-width: 500px;
-            width: 90%;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-bottom: 10px;
-        }
+    .item {
+      max-width: 400px;
+      width: 90%;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
 
-        .gallery-item img {
-            width: 100%;
-            border-radius: 20px 20px 0 0;
-        }
+    .item:hover {
+      transform: scale(1.05);
+    }
 
-        .gallery-item p {
-            margin: 10px;
-            font-size: 1rem;
-        }
+    .item img {
+      width: 100%;
+      border-radius: 15px;
+    }
 
-        .home-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #00e6ff;
-            color: black;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Luckiest Guy', cursive;
-            box-shadow: 0 0 10px #00e6ff;
-        }
+    .item p {
+      font-size: 1em;
+      padding: 10px;
+      margin: 0;
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            .gallery-item {
-                width: 95%;
-            }
-        }
-    </style>
+    .home-button {
+      margin: 40px auto 20px;
+      display: inline-block;
+      background-color: #00f0ff;
+      color: black;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2em;
+      text-decoration: none;
+      font-family: 'Luckiest Guy', cursive;
+      box-shadow: 0 0 10px #00f0ff;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.7em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>🛻 WHEELS FLEX</h1>
+  <h1>🛻 WHEELS FLEX</h1>
 
-    <div class="gallery">
-        <div class="gallery-item">
-            <img src="foodtruck1.jpg" alt="Foodtruck 1">
-            <p>🖤 Oldschool vzhled, co servíruje styl stejně tvrdě jako burgery. Respekt!</p>
-        </div>
-        <div class="gallery-item">
-            <img src="foodtruck3.jpg" alt="Foodtruck 3">
-            <p>🔥 Tento truck je ready na festival – blinkry svítí víc než DJ stage!</p>
-        </div>
-        <div class="gallery-item">
-            <img src="foodtruck4.jpg" alt="Foodtruck 4">
-            <p>🎪 Retro vibes a milkshaky, co ti otočí jazyk. Pure nostalgia drip.</p>
-        </div>
-        <div class="gallery-item">
-            <img src="trailer 2.jpg" alt="Trailer 2">
-            <p>🌅 Západ slunce + PO-JO trailer = kombinace, co posílá vibes až do nebe.</p>
-        </div>
-        <div class="gallery-item">
-            <img src="trailer1.jpg" alt="Trailer 1">
-            <p>🚀 Sci-fi zvenku, food rave zevnitř. Takový truck neparkuješ – vystavuješ!</p>
-        </div>
-        <div class="gallery-item">
-            <img src="trailer3.jpg" alt="Trailer 3">
-            <p>🎉 Party na kolech? Check. Styl? Check. Vůně hranolků? Taky check.</p>
-        </div>
+  <div class="gallery">
+    <div class="item">
+      <img src="foodtruck1.jpg" alt="Foodtruck 1">
+      <p>🚀 Jako raketa na kolech. Styl, co servíruje chuť i swag v jednom záběru.</p>
     </div>
+    <div class="item">
+      <img src="foodtruck3.jpg" alt="Foodtruck 3">
+      <p>🌮 Tenhle truck zná heslo: „Kdo negriluje, nežije.“ Plná palba chutí a neony.</p>
+    </div>
+    <div class="item">
+      <img src="foodtruck4.jpg" alt="Foodtruck 4">
+      <p>🍔 Kombinace retro vibes a burger revoluce. Tady se stojí fronta i bez jídla.</p>
+    </div>
+    <div class="item">
+      <img src="trailer 2.jpg" alt="Trailer 2">
+      <p>🎪 Festivalový ninja – objede republiku a zanechá jen prázdné talíře a úsměvy.</p>
+    </div>
+    <div class="item">
+      <img src="trailer1.jpg" alt="Trailer 1">
+      <p>🍟 Minimalistický král mezi trailery. Dává víc než slibuje. Lowkey legenda.</p>
+    </div>
+    <div class="item">
+      <img src="trailer3.jpg" alt="Trailer 3">
+      <p>🌀 Když foodtruck vypadá jako scéna z rave party – víš, že tě čeká jízda.</p>
+    </div>
+  </div>
 
-    <a href="index.html" class="home-button">🏠 Domů</a>
+  <a href="index.html" class="home-button">🏠 Domů</a>
 </body>
 </html>
